@@ -22,10 +22,12 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
-      - run: npm ci
+      # Use install (not ci) so a missing or briefly out-of-sync lockfile still builds.
+      # For stricter installs, commit an up-to-date package-lock.json and switch back to npm ci.
+      - run: npm install --no-audit --no-fund
 
       - run: npm run build
 

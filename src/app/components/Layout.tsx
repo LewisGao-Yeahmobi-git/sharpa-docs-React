@@ -1,4 +1,4 @@
-import svgPaths from "../../imports/svg-c6pkhq2x9i";
+import svgPaths from "../../imports/nav-logo-paths";
 import { useState, useEffect, useRef } from "react";
 import { Search, X } from "lucide-react";
 import { searchData } from "../docs/content-config";

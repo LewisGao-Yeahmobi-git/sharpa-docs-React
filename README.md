@@ -1,11 +1,17 @@
+# Sharpa Robotics Docs
 
-  # 还原页面设计
+Documentation site for Sharpa Robotics.
 
-  This is a code bundle for 还原页面设计. The original project is available at https://www.figma.com/design/Z56uYMv2tlPpMWg4zP7UB0/%E8%BF%98%E5%8E%9F%E9%A1%B5%E9%9D%A2%E8%AE%BE%E8%AE%A1.
+## Development
 
-  ## Running the code
+```bash
+npm install
+npm run dev
+```
 
-  Run `npm i` to install the dependencies.
+## Production build
 
-  Run `npm run dev` to start the development server.
-  
+```bash
+npm run build
+npm run preview
+```

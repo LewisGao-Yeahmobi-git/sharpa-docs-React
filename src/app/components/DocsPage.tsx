@@ -133,30 +133,40 @@ function GlobalNavSidebar({
   onNavigate: (id: string) => void;
 }) {
   return (
-    <aside className="hidden lg:block w-[248px] xl:w-[288px] shrink-0 border-r border-[#f0f0f0] bg-[#fbfbfc] sticky top-[80px] h-[calc(100vh-80px)] overflow-y-auto">
-      <div className="px-[24px] xl:px-[32px] py-[32px]">
-        <p className="text-[12px] uppercase tracking-[0.12em] text-[#9b9b9b] mb-[18px]">
-          Manual
+    <aside className="hidden lg:block w-[248px] xl:w-[288px] shrink-0 border-r border-[#eeeeee] bg-white sticky top-[80px] h-[calc(100vh-80px)] overflow-y-auto">
+      <div className="px-[24px] xl:px-[32px] py-[24px]">
+        <p className="text-[#141414] text-[14px] leading-[1.35] pb-[16px] border-b border-[#eeeeee]" style={{ fontWeight: 650 }}>
+          {manualContent.title}
         </p>
-        <nav className="flex flex-col gap-[4px]">
-          {manualContent.sections.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => onNavigate(section.id)}
-              className={`group flex items-center justify-between gap-[12px] rounded-[10px] px-[12px] py-[10px] text-left text-[15px] leading-[1.35] transition-colors cursor-pointer ${
-                activeSectionId === section.id
-                  ? "bg-white text-[#345bb4] shadow-[0_1px_10px_rgba(0,0,0,0.05)]"
-                  : "text-[#3f3f46] hover:bg-white hover:text-[#141414]"
-              }`}
-              style={{ fontWeight: activeSectionId === section.id ? 600 : 500 }}
-            >
-              <span>{section.title}</span>
-              <ChevronRight
-                size={15}
-                className={`shrink-0 transition-transform ${activeSectionId === section.id ? "translate-x-[2px]" : "opacity-0 group-hover:opacity-100"}`}
-              />
-            </button>
-          ))}
+        <nav className="flex flex-col py-[10px]">
+          {manualContent.sections.map((section, index) => {
+            const isActive = activeSectionId === section.id;
+            const shouldShowDivider =
+              index === 1 || index === manualContent.sections.length - 3;
+
+            return (
+              <div key={section.id}>
+                <button
+                  onClick={() => onNavigate(section.id)}
+                  className={`group flex w-full items-center justify-between gap-[12px] px-0 py-[10px] text-left text-[13px] leading-[1.35] transition-colors cursor-pointer ${
+                    isActive
+                      ? "text-[#345bb4]"
+                      : "text-[#141414] hover:text-[#345bb4]"
+                  }`}
+                  style={{ fontWeight: isActive ? 650 : 500 }}
+                >
+                  <span>{section.title}</span>
+                  <ChevronRight
+                    size={14}
+                    className={`shrink-0 transition-all ${isActive ? "translate-x-[2px] opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+                  />
+                </button>
+                {shouldShowDivider && index < manualContent.sections.length - 1 && (
+                  <div className="my-[10px] h-px bg-[#eeeeee]" />
+                )}
+              </div>
+            );
+          })}
         </nav>
       </div>
     </aside>
@@ -176,13 +186,13 @@ function DocsTocRightSidebar({
   const headings = getSectionHeadings(section);
 
   return (
-    <aside className="hidden xl:block w-[280px] shrink-0 sticky top-[112px] max-h-[calc(100vh-136px)] overflow-y-auto pr-[12px]">
-      <p className="text-[12px] uppercase tracking-[0.12em] text-[#9b9b9b] mb-[16px]">
+    <aside className="hidden xl:block w-[280px] shrink-0 sticky top-[112px] max-h-[calc(100vh-136px)] overflow-y-auto rounded-[16px] bg-[#fbfbfc] px-[20px] py-[20px]">
+      <p className="text-[13px] tracking-[-0.13px] text-[#141414] mb-[18px]" style={{ fontWeight: 650 }}>
         On this page
       </p>
       <button
         onClick={() => onNavigate(section.id)}
-        className={`w-full text-left text-[14px] leading-[1.45] mb-[8px] transition-colors cursor-pointer ${
+        className={`w-full text-left text-[13px] leading-[1.45] mb-[8px] transition-colors cursor-pointer ${
           activeId === section.id ? "text-[#345bb4]" : "text-[#666] hover:text-[#141414]"
         }`}
         style={{ fontWeight: activeId === section.id ? 600 : 500 }}
@@ -194,7 +204,7 @@ function DocsTocRightSidebar({
           <button
             key={heading.id}
             onClick={() => onNavigate(heading.id)}
-            className={`text-left text-[13px] leading-[1.45] py-[6px] pr-[8px] transition-colors cursor-pointer border-l -ml-px ${
+            className={`text-left text-[12px] leading-[1.45] py-[6px] pr-[8px] transition-colors cursor-pointer border-l -ml-px ${
               activeId === heading.id
                 ? "text-[#345bb4] border-[#345bb4]"
                 : "text-[#777] border-transparent hover:text-[#141414]"

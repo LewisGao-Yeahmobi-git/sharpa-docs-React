@@ -10,4 +10,6 @@ export const router = createBrowserRouter([
     path: "/docs",
     Component: DocsPage,
   },
-]);
+], {
+  basename: import.meta.env.BASE_URL,
+});

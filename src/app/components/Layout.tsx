@@ -1,9 +1,15 @@
-import svgPaths from "../../imports/nav-logo-paths";
+import svgPaths from "../../imports/svg-c6pkhq2x9i";
 import { useState, useEffect, useRef } from "react";
-import { Search, X } from "lucide-react";
-import { searchData } from "../docs/content-config";
+import { Search, X, AlignLeft } from "lucide-react";
 
 export const font = "'Plus Jakarta Sans', sans-serif";
+
+export interface SearchEntry {
+  id: string;
+  title: string;
+  breadcrumb: string;
+  snippet?: string;
+}
 
 function highlightMatch(text: string, query: string) {
   if (!query.trim()) return <span>{text}</span>;
@@ -18,10 +24,10 @@ function highlightMatch(text: string, query: string) {
   );
 }
 
-function filterSearch(q: string) {
+function filterSearch(entries: SearchEntry[], q: string) {
   if (!q.trim()) return [];
   const lower = q.toLowerCase();
-  return searchData.filter((entry) =>
+  return entries.filter((entry) =>
     entry.title.toLowerCase().includes(lower) ||
     entry.breadcrumb.toLowerCase().includes(lower) ||
     (entry.snippet?.toLowerCase().includes(lower) ?? false)
@@ -29,7 +35,7 @@ function filterSearch(q: string) {
 }
 
 // --- Desktop Inline Search Bar ---
-function NavSearch() {
+function NavSearch({ searchEntries }: { searchEntries: SearchEntry[] }) {
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(0);
@@ -37,7 +43,7 @@ function NavSearch() {
   const containerRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
 
-  const results = filterSearch(query);
+  const results = filterSearch(searchEntries, query);
 
   useEffect(() => { setSelected(0); }, [query]);
 
@@ -144,13 +150,13 @@ function NavSearch() {
 }
 
 // --- Mobile Full-Screen Search Overlay ---
-function MobileSearchOverlay({ onClose }: { onClose: () => void }) {
+function MobileSearchOverlay({ onClose, searchEntries }: { onClose: () => void; searchEntries: SearchEntry[] }) {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
 
-  const results = filterSearch(query);
+  const results = filterSearch(searchEntries, query);
 
   useEffect(() => { setSelected(0); }, [query]);
 
@@ -265,31 +271,36 @@ function SharpaLogo() {
   );
 }
 
-export function Nav() {
+export function Nav({ onMenuOpen, searchEntries = [] }: { onMenuOpen?: () => void; searchEntries?: SearchEntry[] }) {
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
 
   return (
     <>
-      <nav className="bg-[#f5f5f7]/95 backdrop-blur-sm flex justify-center px-[24px] lg:px-[160px] h-[64px] lg:h-[80px] w-full sticky top-0 z-50" style={{ fontFamily: font }}>
-        <div className="w-full max-w-[1600px] flex items-center justify-center">
-          <div className="w-full max-w-[1420px] flex items-center justify-between gap-[24px]">
-            <SharpaLogo />
-            <NavSearch />
-            {/* Mobile search icon */}
-            <button
-              onClick={() => setMobileSearchOpen(true)}
-              className="lg:hidden p-[8px] -mr-[8px] text-[#222] hover:text-[#345bb4] transition-colors cursor-pointer"
-            >
-              <Search size={22} strokeWidth={2} />
-            </button>
-          </div>
+      <nav className="bg-[#f5f5f7]/95 backdrop-blur-sm flex items-center justify-between px-[24px] lg:px-[40px] h-[64px] lg:h-[80px] w-full sticky top-0 z-50" style={{ fontFamily: font }}>
+        <div className="flex items-center gap-[12px]">
+          {/* Mobile menu button — left of logo */}
+          <button
+            onClick={onMenuOpen}
+            className="lg:hidden p-[6px] -ml-[6px] text-[#222] hover:text-[#345bb4] transition-colors cursor-pointer"
+          >
+            <AlignLeft size={22} strokeWidth={2} />
+          </button>
+          <SharpaLogo />
         </div>
+        <NavSearch searchEntries={searchEntries} />
+        {/* Mobile search icon */}
+        <button
+          onClick={() => setMobileSearchOpen(true)}
+          className="lg:hidden p-[8px] -mr-[8px] text-[#222] hover:text-[#345bb4] transition-colors cursor-pointer"
+        >
+          <Search size={22} strokeWidth={2} />
+        </button>
       </nav>
 
       {/* Mobile search overlay */}
       {mobileSearchOpen && (
         <div className="lg:hidden">
-          <MobileSearchOverlay onClose={() => setMobileSearchOpen(false)} />
+          <MobileSearchOverlay onClose={() => setMobileSearchOpen(false)} searchEntries={searchEntries} />
         </div>
       )}
     </>
@@ -298,7 +309,7 @@ export function Nav() {
 
 export function Footer() {
   return (
-    <footer className="bg-[#f5f5f7] w-full flex items-center justify-center px-[24px] lg:px-[160px] py-[24px]" style={{ fontFamily: font }}>
+    <footer className="bg-[#f5f5f7] w-full flex items-center justify-center px-[24px] lg:px-[80px] py-[24px]" style={{ fontFamily: font }}>
       <div className="w-full max-w-[1600px] flex justify-center">
         <span className="text-[#222] text-[14px] lg:text-[16px] tracking-[-0.16px]">&copy; 2025 Sharpa. All rights reserved.</span>
       </div>

@@ -1,17 +1,23 @@
-# Sharpa Robotics Docs
+# Sharpa Hand User Manual
 
-Documentation site for Sharpa Robotics.
+Documentation site for the Sharpa Hand user manual and API reference.
 
 ## Development
 
-```bash
+Install dependencies:
+
+```sh
 npm install
+```
+
+Start the development server:
+
+```sh
 npm run dev
 ```
 
-## Production build
+Create a production build:
 
-```bash
+```sh
 npm run build
-npm run preview
 ```

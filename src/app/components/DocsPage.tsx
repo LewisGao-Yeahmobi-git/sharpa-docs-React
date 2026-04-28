@@ -139,16 +139,14 @@ function GlobalNavSidebar({
           {manualContent.title}
         </p>
         <nav className="flex flex-col py-[10px]">
-          {manualContent.sections.map((section, index) => {
+          {manualContent.sections.map((section) => {
             const isActive = activeSectionId === section.id;
-            const shouldShowDivider =
-              index === 1 || index === manualContent.sections.length - 3;
 
             return (
               <div key={section.id}>
                 <button
                   onClick={() => onNavigate(section.id)}
-                  className={`group flex w-full items-center justify-between gap-[12px] px-0 py-[10px] text-left text-[13px] leading-[1.35] transition-colors cursor-pointer ${
+                  className={`w-full px-0 py-[10px] text-left text-[13px] leading-[1.35] transition-colors cursor-pointer ${
                     isActive
                       ? "text-[#345bb4]"
                       : "text-[#141414] hover:text-[#345bb4]"
@@ -156,14 +154,7 @@ function GlobalNavSidebar({
                   style={{ fontWeight: isActive ? 650 : 500 }}
                 >
                   <span>{section.title}</span>
-                  <ChevronRight
-                    size={14}
-                    className={`shrink-0 transition-all ${isActive ? "translate-x-[2px] opacity-100" : "opacity-0 group-hover:opacity-100"}`}
-                  />
                 </button>
-                {shouldShowDivider && index < manualContent.sections.length - 1 && (
-                  <div className="my-[10px] h-px bg-[#eeeeee]" />
-                )}
               </div>
             );
           })}
@@ -184,39 +175,52 @@ function DocsTocRightSidebar({
 }) {
   if (!section) return null;
   const headings = getSectionHeadings(section);
+  const tocItems = [
+    { id: section.id, text: section.title, level: 1 },
+    ...headings.map((heading) => ({
+      id: heading.id,
+      text: heading.text,
+      level: heading.level,
+    })),
+  ];
 
   return (
     <aside className="hidden xl:block w-[280px] shrink-0 sticky top-[112px] max-h-[calc(100vh-136px)] overflow-y-auto rounded-[16px] bg-[#fbfbfc] px-[20px] py-[20px]">
       <p className="text-[13px] tracking-[-0.13px] text-[#141414] mb-[18px]" style={{ fontWeight: 650 }}>
         On this page
       </p>
-      <button
-        onClick={() => onNavigate(section.id)}
-        className={`w-full text-left text-[13px] leading-[1.45] mb-[8px] transition-colors cursor-pointer ${
-          activeId === section.id ? "text-[#345bb4]" : "text-[#666] hover:text-[#141414]"
-        }`}
-        style={{ fontWeight: activeId === section.id ? 600 : 500 }}
-      >
-        {section.title}
-      </button>
-      <nav className="flex flex-col border-l border-[#eeeeee]">
-        {headings.map((heading) => (
-          <button
-            key={heading.id}
-            onClick={() => onNavigate(heading.id)}
-            className={`text-left text-[12px] leading-[1.45] py-[6px] pr-[8px] transition-colors cursor-pointer border-l -ml-px ${
-              activeId === heading.id
-                ? "text-[#345bb4] border-[#345bb4]"
-                : "text-[#777] border-transparent hover:text-[#141414]"
-            }`}
-            style={{
-              paddingLeft: `${Math.max(12, (heading.level - 1) * 10)}px`,
-              fontWeight: activeId === heading.id ? 600 : 400,
-            }}
-          >
-            {heading.text}
-          </button>
-        ))}
+      <nav className="relative flex flex-col gap-[2px]">
+        <span className="absolute left-[10px] top-[10px] bottom-[10px] w-px bg-[#e3e3e3]" />
+        {tocItems.map((item) => {
+          const isActive = activeId === item.id;
+
+          return (
+            <button
+              key={item.id}
+              onClick={() => onNavigate(item.id)}
+              className={`group relative flex w-full items-start gap-[12px] text-left text-[12px] leading-[1.45] py-[6px] pr-[8px] transition-colors cursor-pointer ${
+                isActive
+                  ? "text-[#345bb4]"
+                  : "text-[#777] hover:text-[#141414]"
+              }`}
+              style={{ fontWeight: isActive ? 600 : 400 }}
+            >
+              <span className="relative flex h-[20px] w-[22px] shrink-0 justify-center">
+                {isActive && (
+                  <span className="absolute top-[-6px] bottom-[-6px] w-px bg-[#345bb4]" />
+                )}
+                <span
+                  className={`relative z-10 mt-[6px] rounded-full ${
+                    isActive
+                      ? "h-[10px] w-[10px] bg-[#345bb4]"
+                      : "h-[6px] w-[6px] bg-[#e2e2e2] group-hover:bg-[#cfcfcf]"
+                  }`}
+                />
+              </span>
+              <span>{item.text}</span>
+            </button>
+          );
+        })}
       </nav>
     </aside>
   );

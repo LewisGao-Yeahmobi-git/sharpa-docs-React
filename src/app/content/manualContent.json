@@ -5966,10 +5966,6 @@
           "text": "Parameter Definitions:"
         },
         {
-          "type": "paragraph",
-          "text": "点击图片可查看完整电子表格"
-        },
-        {
           "type": "heading",
           "level": 5,
           "id": "6-4-6-mit-control",
@@ -6020,19 +6016,11 @@
         },
         {
           "type": "paragraph",
-          "text": "点击图片可查看完整电子表格"
-        },
-        {
-          "type": "paragraph",
           "text": "Note: Improper kp and kdvalues may cause system oscillation."
         },
         {
           "type": "paragraph",
           "text": "It is recommended to keep Kd at its default value, and tune joint stiffness by adjusting Kp. The recommended Kp range is as follows(applicable only when torque_source is set to current(default); otherwise, oscillation may occur):"
-        },
-        {
-          "type": "paragraph",
-          "text": "点击图片可查看完整电子表格"
         },
         {
           "type": "heading",
@@ -6228,10 +6216,6 @@
         {
           "type": "paragraph",
           "text": "Typical payloads in frame[\"content\"] may include:"
-        },
-        {
-          "type": "paragraph",
-          "text": "点击图片可查看完整电子表格"
         },
         {
           "type": "paragraph",
@@ -7391,10 +7375,6 @@
           "text": "Parameter Definitions:"
         },
         {
-          "type": "paragraph",
-          "text": "点击图片可查看完整电子表格"
-        },
-        {
           "type": "heading",
           "level": 5,
           "id": "6-4-6-mit-control-2",
@@ -7445,19 +7425,11 @@
         },
         {
           "type": "paragraph",
-          "text": "点击图片可查看完整电子表格"
-        },
-        {
-          "type": "paragraph",
           "text": "Note: Improper kp and kdvalues may cause system oscillation."
         },
         {
           "type": "paragraph",
           "text": "It is recommended to keep Kd at its default value, and tune joint stiffness by adjusting Kp. The recommended Kp range is as follows(applicable only when torque_source is set to current(default); otherwise, oscillation may occur):"
-        },
-        {
-          "type": "paragraph",
-          "text": "点击图片可查看完整电子表格"
         },
         {
           "type": "heading",
@@ -7703,10 +7675,6 @@
         {
           "type": "paragraph",
           "text": "Typical payloads in Frame::content may include:"
-        },
-        {
-          "type": "paragraph",
-          "text": "点击图片可查看完整电子表格"
         },
         {
           "type": "paragraph",

@@ -2,6 +2,8 @@ import { useState } from "react";
 import type { ManualBlock, ManualSection, ManualTableCell } from "../../content/manual";
 import { font } from "../Layout";
 
+const assetBase = import.meta.env.BASE_URL;
+
 interface ManualRendererProps {
   sections: ManualSection[];
 }
@@ -166,7 +168,7 @@ function CellContent({ cell }: { cell: ManualTableCell }) {
       {cell.images.map((image, index) => (
         <img
           key={`${image.src}-${index}`}
-          src={image.src}
+          src={resolveAssetPath(image.src)}
           alt={image.alt || ""}
           className="max-h-[260px] w-auto max-w-full rounded-[8px] object-contain"
           loading="lazy"
@@ -190,7 +192,7 @@ function ImageGrid({ images, caption }: Extract<ManualBlock, { type: "imageGrid"
         {images.map((image, index) => (
           <img
             key={`${image.src}-${index}`}
-            src={image.src}
+            src={resolveAssetPath(image.src)}
             alt={image.alt || caption || ""}
             className="w-full max-h-[520px] rounded-[12px] border border-[#f0f0f0] object-contain bg-[#fafafa]"
             loading="lazy"
@@ -204,6 +206,11 @@ function ImageGrid({ images, caption }: Extract<ManualBlock, { type: "imageGrid"
       )}
     </figure>
   );
+}
+
+function resolveAssetPath(src: string) {
+  if (!src.startsWith("/")) return src;
+  return `${assetBase.replace(/\/$/, "")}${src}`;
 }
 
 function renderInlineCode(text: string) {

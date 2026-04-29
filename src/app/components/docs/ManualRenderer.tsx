@@ -178,6 +178,10 @@ function TableBlock({
   rows: ManualTableCell[][];
   columnWidths?: number[];
 }) {
+  if (isJointRangeTable(rows)) {
+    return <JointRangeTable rows={rows} columnWidths={columnWidths} />;
+  }
+
   const maxColumns = Math.max(
     ...rows.map((row) => row.reduce((count, cell) => count + (cell.colSpan ?? 1), 0))
   );
@@ -229,6 +233,89 @@ function TableBlock({
               })}
             </tr>
           ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function isJointRangeTable(rows: ManualTableCell[][]) {
+  return (
+    rows[0]?.[0]?.text === "Joint Group" &&
+    rows[0]?.[1]?.text === "" &&
+    rows[0]?.[2]?.text === "Range"
+  );
+}
+
+function JointRangeTable({
+  rows,
+  columnWidths,
+}: {
+  rows: ManualTableCell[][];
+  columnWidths?: number[];
+}) {
+  const bodyRows = rows.slice(1);
+  const totalWidth = columnWidths?.reduce((sum, width) => sum + width, 0) ?? 0;
+
+  const getGroupRowSpan = (startIndex: number) => {
+    let span = 1;
+    for (let index = startIndex + 1; index < bodyRows.length; index += 1) {
+      if (bodyRows[index]?.[0]?.text) break;
+      span += 1;
+    }
+    return span;
+  };
+
+  return (
+    <div className="overflow-x-auto rounded-[10px] border border-[#dcdfe5] my-[4px]">
+      <table className="w-full border-collapse text-[14px] caption-bottom" style={{ fontFamily: font }}>
+        {columnWidths && totalWidth > 0 && (
+          <colgroup>
+            {columnWidths.map((width, index) => (
+              <col key={index} style={{ width: `${(width / totalWidth) * 100}%` }} />
+            ))}
+          </colgroup>
+        )}
+        <thead>
+          <tr>
+            <th
+              colSpan={2}
+              className="border border-[#dcdfe5] bg-[#f7f8fa] px-[14px] py-[12px] text-center text-[#4b5563] text-[12px] uppercase tracking-[0.02em]"
+              style={{ fontWeight: 600 }}
+            >
+              Joint Group
+            </th>
+            <th
+              className="border border-[#dcdfe5] bg-[#f7f8fa] px-[14px] py-[12px] text-center text-[#4b5563] text-[12px] uppercase tracking-[0.02em]"
+              style={{ fontWeight: 600 }}
+            >
+              Range
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {bodyRows.map((row, rowIndex) => {
+            const groupText = row[0]?.text;
+
+            return (
+              <tr key={`${row[1]?.text}-${rowIndex}`}>
+                {groupText && (
+                  <td
+                    rowSpan={getGroupRowSpan(rowIndex)}
+                    className="border border-[#dcdfe5] px-[14px] py-[12px] text-left align-top text-[#3f3f46]"
+                  >
+                    {renderInlineContent(groupText)}
+                  </td>
+                )}
+                <td className="border border-[#dcdfe5] px-[14px] py-[12px] text-left align-top text-[#3f3f46]">
+                  {renderInlineContent(row[1]?.text ?? "")}
+                </td>
+                <td className="border border-[#dcdfe5] px-[14px] py-[12px] text-left align-top text-[#3f3f46]">
+                  {renderInlineContent(row[2]?.text ?? "")}
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
@@ -412,7 +499,7 @@ function ImageGrid({ images, caption }: { images: ManualImage[]; caption?: strin
         {images.map((image, index) => (
           <div
             key={`${image.src}-${index}`}
-            className={`flex items-center justify-center rounded-[12px] border border-[#f0f0f0] bg-[#fafafa] overflow-hidden ${
+            className={`flex items-center justify-center rounded-[12px] border border-[#f0f0f0] overflow-hidden ${
               hasMultipleImages ? "h-[260px] lg:h-[320px]" : ""
             }`}
           >

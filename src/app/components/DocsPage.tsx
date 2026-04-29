@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronRight, List, X } from "lucide-react";
 import { Footer, Nav, font } from "./Layout";
 import { ManualRenderer } from "./docs/ManualRenderer";
@@ -132,24 +132,38 @@ function GlobalNavSidebar({
   activeSectionId: string;
   onNavigate: (id: string) => void;
 }) {
+  const waveSections = manualContent.sections.filter((section) => section.title !== "North");
+  const northSection = manualContent.sections.find((section) => section.title === "North");
+  const isWaveActive = activeSectionId !== northSection?.id;
+
   return (
     <aside className="hidden lg:block w-[248px] xl:w-[288px] shrink-0 border-r border-[#eeeeee] bg-white sticky top-[80px] h-[calc(100vh-80px)] overflow-y-auto">
       <div className="px-[24px] xl:px-[32px] py-[24px]">
         <p className="text-[#141414] text-[14px] leading-[1.35] pb-[16px] border-b border-[#eeeeee]" style={{ fontWeight: 650 }}>
-          {manualContent.title}
+          User Manual
         </p>
         <nav className="flex flex-col py-[10px]">
-          {manualContent.sections.map((section) => {
+          <button
+            onClick={() => waveSections[0] && onNavigate(waveSections[0].id)}
+            className={`w-full px-0 py-[10px] text-left text-[14px] leading-[1.35] transition-colors cursor-pointer ${
+              isWaveActive ? "text-[#345bb4]" : "text-[#141414] hover:text-[#345bb4]"
+            }`}
+            style={{ fontWeight: isWaveActive ? 650 : 600 }}
+          >
+            <span>{manualContent.title}</span>
+          </button>
+          <div className="flex flex-col pb-[8px]">
+            {waveSections.map((section) => {
             const isActive = activeSectionId === section.id;
 
             return (
               <div key={section.id}>
                 <button
                   onClick={() => onNavigate(section.id)}
-                  className={`w-full px-0 py-[10px] text-left text-[13px] leading-[1.35] transition-colors cursor-pointer ${
+                  className={`w-full py-[8px] pl-[14px] text-left text-[12px] leading-[1.35] transition-colors cursor-pointer ${
                     isActive
                       ? "text-[#345bb4]"
-                      : "text-[#141414] hover:text-[#345bb4]"
+                      : "text-[#555] hover:text-[#345bb4]"
                   }`}
                   style={{ fontWeight: isActive ? 650 : 500 }}
                 >
@@ -157,7 +171,21 @@ function GlobalNavSidebar({
                 </button>
               </div>
             );
-          })}
+            })}
+          </div>
+          {northSection && (
+            <button
+              onClick={() => onNavigate(northSection.id)}
+              className={`w-full px-0 py-[10px] text-left text-[14px] leading-[1.35] transition-colors cursor-pointer ${
+                activeSectionId === northSection.id
+                  ? "text-[#345bb4]"
+                  : "text-[#141414] hover:text-[#345bb4]"
+              }`}
+              style={{ fontWeight: activeSectionId === northSection.id ? 650 : 600 }}
+            >
+              <span>{northSection.title}</span>
+            </button>
+          )}
         </nav>
       </div>
     </aside>
@@ -193,12 +221,16 @@ function DocsTocRightSidebar({
         <span className="absolute left-[10px] top-[10px] bottom-[10px] w-px bg-[#e3e3e3]" />
         {tocItems.map((item) => {
           const isActive = activeId === item.id;
+          const depth = Math.max(0, item.level - 1);
+          const markerSize = item.level <= 2 ? 8 : item.level === 3 ? 6 : 5;
+          const textSize =
+            item.level <= 2 ? "text-[13px]" : item.level === 3 ? "text-[12px]" : "text-[11px]";
 
           return (
             <button
               key={item.id}
               onClick={() => onNavigate(item.id)}
-              className={`group relative flex w-full items-start gap-[12px] text-left text-[12px] leading-[1.45] py-[6px] pr-[8px] transition-colors cursor-pointer ${
+              className={`group relative flex w-full items-start gap-[12px] text-left ${textSize} leading-[1.45] py-[6px] pr-[8px] transition-colors cursor-pointer ${
                 isActive
                   ? "text-[#345bb4]"
                   : "text-[#777] hover:text-[#141414]"
@@ -210,14 +242,14 @@ function DocsTocRightSidebar({
                   <span className="absolute top-[-6px] bottom-[-6px] w-px bg-[#345bb4]" />
                 )}
                 <span
-                  className={`relative z-10 mt-[6px] rounded-full ${
-                    isActive
-                      ? "h-[10px] w-[10px] bg-[#345bb4]"
-                      : "h-[6px] w-[6px] bg-[#e2e2e2] group-hover:bg-[#cfcfcf]"
-                  }`}
+                  className={`relative z-10 mt-[6px] rounded-full ${isActive ? "bg-[#345bb4]" : "bg-[#e2e2e2] group-hover:bg-[#cfcfcf]"}`}
+                  style={{
+                    height: `${isActive ? Math.max(10, markerSize + 2) : markerSize}px`,
+                    width: `${isActive ? Math.max(10, markerSize + 2) : markerSize}px`,
+                  }}
                 />
               </span>
-              <span>{item.text}</span>
+              <span style={{ paddingLeft: `${depth * 10}px` }}>{item.text}</span>
             </button>
           );
         })}

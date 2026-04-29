@@ -8,14 +8,21 @@ export interface ManualImage {
 export interface ManualTableCell {
   text: string;
   images: ManualImage[];
+  colSpan?: number;
+}
+
+export interface ManualListItem {
+  text: string;
+  level?: number;
 }
 
 export type ManualBlock =
   | { type: "heading"; level: number; id: string; text: string }
   | { type: "paragraph"; text: string }
-  | { type: "list"; items: string[] }
+  | { type: "list"; ordered?: boolean; start?: number; items: Array<string | ManualListItem> }
+  | { type: "callout"; variant: "note" | "warning"; text: string }
   | { type: "code"; language: string; code: string }
-  | { type: "table"; rows: ManualTableCell[][] }
+  | { type: "table"; rows: ManualTableCell[][]; columnWidths?: number[] }
   | { type: "imageGrid"; images: ManualImage[]; caption?: string };
 
 export interface ManualSection {
@@ -91,7 +98,9 @@ function firstTextSnippet(section: ManualSection) {
 
   if (!block) return undefined;
   if (block.type === "paragraph") return block.text;
-  return block.items.join(", ");
+  return block.items
+    .map((item) => (typeof item === "string" ? item : item.text))
+    .join(", ");
 }
 
 function nearbyTextSnippet(section: ManualSection, headingId: string) {
@@ -103,7 +112,12 @@ function nearbyTextSnippet(section: ManualSection, headingId: string) {
   for (const block of section.blocks.slice(headingIndex + 1)) {
     if (block.type === "heading") return undefined;
     if (block.type === "paragraph") return block.text;
-    if (block.type === "list") return block.items.join(", ");
+    if (block.type === "list") {
+      return block.items
+        .map((item) => (typeof item === "string" ? item : item.text))
+        .join(", ");
+    }
+    if (block.type === "callout") return block.text;
   }
 
   return undefined;

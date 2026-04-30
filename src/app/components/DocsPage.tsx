@@ -117,9 +117,6 @@ function PageHeader() {
       <h1 className="text-[#141414] leading-[1.2] text-[30px] lg:text-[48px]" style={{ fontWeight: 650, letterSpacing: "-0.035em" }}>
         {manualContent.title}
       </h1>
-      <p className="text-[#222] leading-[1.55] mt-[12px] text-[15px] lg:text-[17px]" style={{ letterSpacing: "-0.01em" }}>
-        {manualContent.intro}
-      </p>
       <div className="w-full h-px bg-[#e0e0e0] mt-[28px] lg:mt-[40px]" />
     </header>
   );
@@ -139,13 +136,10 @@ function GlobalNavSidebar({
   return (
     <aside className="hidden lg:block w-[248px] xl:w-[288px] shrink-0 border-r border-[#eeeeee] bg-white sticky top-[80px] h-[calc(100vh-80px)] overflow-y-auto">
       <div className="px-[24px] xl:px-[32px] py-[24px]">
-        <p className="text-[#141414] text-[14px] leading-[1.35] pb-[16px] border-b border-[#eeeeee]" style={{ fontWeight: 650 }}>
-          User Manual
-        </p>
         <nav className="flex flex-col py-[10px]">
           <button
             onClick={() => waveSections[0] && onNavigate(waveSections[0].id)}
-            className={`w-full px-0 py-[10px] text-left text-[14px] leading-[1.35] transition-colors cursor-pointer ${
+            className={`w-full px-0 py-[10px] text-left text-[14px] leading-[1.35] transition-colors cursor-pointer border-b border-[#f0f0f0] ${
               isWaveActive ? "text-[#345bb4]" : "text-[#141414] hover:text-[#345bb4]"
             }`}
             style={{ fontWeight: isWaveActive ? 650 : 600 }}
@@ -176,7 +170,7 @@ function GlobalNavSidebar({
           {northSection && (
             <button
               onClick={() => onNavigate(northSection.id)}
-              className={`w-full px-0 py-[10px] text-left text-[14px] leading-[1.35] transition-colors cursor-pointer ${
+              className={`w-full px-0 py-[10px] text-left text-[14px] leading-[1.35] transition-colors cursor-pointer border-b border-[#f0f0f0] mt-[16px] ${
                 activeSectionId === northSection.id
                   ? "text-[#345bb4]"
                   : "text-[#141414] hover:text-[#345bb4]"
@@ -299,26 +293,37 @@ function MobileGlobalNavDrawer({
     <>
       <div className="fixed inset-0 bg-black/40 z-[100] lg:hidden" onClick={onClose} />
       <div className="fixed top-0 left-0 h-full z-[110] bg-white flex flex-col shadow-2xl lg:hidden" style={{ width: "min(85vw, 340px)", fontFamily: font }}>
-        <DrawerHeader title="Manual" onClose={onClose} />
+        <DrawerHeader title="Wave" onClose={onClose} />
         <nav className="flex-1 overflow-y-auto py-[12px] px-[16px]">
-          {manualContent.sections.map((section) => (
+          {manualContent.sections.map((section) => {
+            const isNorth = section.title === "North";
+            const isActive = activeSectionId === section.id;
+            
+            return (
             <button
               key={section.id}
               onClick={() => {
                 onNavigate(section.id);
                 onClose();
               }}
-              className={`w-full flex items-center justify-between rounded-[10px] px-[12px] py-[12px] text-left text-[15px] transition-colors cursor-pointer ${
-                activeSectionId === section.id
-                  ? "bg-[#f0f4ff] text-[#345bb4]"
-                  : "text-[#222] active:bg-[#f5f5f7]"
-              }`}
-              style={{ fontWeight: activeSectionId === section.id ? 600 : 500 }}
+              className={
+                isNorth
+                  ? `w-full px-0 py-[10px] text-left text-[16px] leading-[1.35] transition-colors cursor-pointer border-b border-[#f0f0f0] ${
+                      isActive ? "text-[#345bb4]" : "text-[#141414] hover:text-[#345bb4]"
+                    }`
+                  : `w-full flex items-center justify-between rounded-[10px] px-[12px] py-[12px] text-left text-[15px] transition-colors cursor-pointer ${
+                      isActive ? "bg-[#f0f4ff] text-[#345bb4]" : "text-[#222] active:bg-[#f5f5f7]"
+                    }`
+              }
+              style={{ 
+                fontWeight: isActive ? (isNorth ? 650 : 600) : (isNorth ? 600 : 500) 
+              }}
             >
               {section.title}
-              <ChevronRight size={15} />
+              {!isNorth && <ChevronRight size={15} />}
             </button>
-          ))}
+            );
+          })}
         </nav>
       </div>
     </>

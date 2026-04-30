@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { AlertTriangle, Info } from "lucide-react";
+import hljs from "highlight.js";
+import "highlight.js/styles/github.css";
 import type {
   ManualBlock,
   ManualImage,
@@ -119,22 +120,28 @@ function ListBlock({ block }: { block: Extract<ManualBlock, { type: "list" }> })
 
 function CalloutBlock({ block }: { block: Extract<ManualBlock, { type: "callout" }> }) {
   const isWarning = block.variant === "warning";
-  const Icon = isWarning ? AlertTriangle : Info;
+  const lines = block.text.split("\n");
 
   return (
     <div
-      className={`flex gap-[12px] rounded-[10px] border px-[14px] py-[12px] text-[15px] lg:text-[16px] leading-[1.55] ${
+      className={`rounded-[10px] border px-[14px] py-[12px] text-[15px] lg:text-[16px] leading-[1.55] ${
         isWarning
           ? "border-[#f4d48a] bg-[#fff8e6] text-[#3f3320]"
           : "border-[#d8e2f7] bg-[#f5f8ff] text-[#26364f]"
       }`}
     >
-      <Icon
-        size={18}
-        className={`mt-[3px] shrink-0 ${isWarning ? "text-[#d18a00]" : "text-[#345bb4]"}`}
-        strokeWidth={2}
-      />
-      <div className="whitespace-pre-line">{renderInlineContent(block.text)}</div>
+      {isWarning ? (
+        <ul className="list-none p-0 m-0 space-y-[4px]">
+          {lines.map((line, index) => (
+            <li key={index} className="flex items-center gap-[8px]">
+              <span className="w-[6px] h-[6px] rounded-full bg-gray-400 shrink-0"></span>
+              <span>{renderInlineContent(line)}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div className="whitespace-pre-line">{renderInlineContent(block.text)}</div>
+      )}
     </div>
   );
 }
@@ -153,19 +160,27 @@ function CodeBlock({ code, language }: { code: string; language?: string }) {
     setTimeout(() => setCopied(false), 1600);
   };
 
+  const getLanguage = (lang: string | undefined) => {
+    if (!lang || lang === "text") return "plaintext";
+    const supported = hljs.getLanguage(lang);
+    return supported ? lang : "plaintext";
+  };
+
+  const highlightedCode = hljs.highlight(code, { language: getLanguage(language) }).value;
+
   return (
-    <div className="relative group rounded-[12px] bg-[#fafafa] border border-[#f0f0f0] overflow-hidden my-[4px]">
+    <div className="relative group rounded-[12px] bg-[#fafafa] border border-[#e0e0e0] overflow-hidden my-[4px]">
       <div className="flex items-center justify-between px-[18px] py-[10px] border-b border-[#eeeeee]">
-        <span className="text-[12px] uppercase tracking-[0.08em] text-[#999]">{language || "text"}</span>
+        <span className="text-[12px] uppercase tracking-[0.08em] text-[#888]">{language || "text"}</span>
         <button
           onClick={handleCopy}
-          className="px-[10px] py-[4px] rounded-[6px] bg-white border border-[#e0e0e0] text-[13px] text-[#666] transition-all duration-200 cursor-pointer hover:bg-[#f0f0f0] hover:text-[#222] active:scale-95"
+          className="px-[10px] py-[4px] rounded-[6px] bg-white border border-[#ddd] text-[13px] text-[#666] transition-all duration-200 cursor-pointer hover:bg-[#f5f5f5] hover:text-[#222] active:scale-95"
         >
           {copied ? "Copied" : "Copy"}
         </button>
       </div>
-      <pre className="overflow-x-auto px-[18px] py-[18px] text-[14px] leading-[1.75] text-[#141414]" style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace" }}>
-        <code>{code}</code>
+      <pre className="overflow-x-auto px-[18px] py-[18px] text-[14px] leading-[1.75]" style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace" }}>
+        <code dangerouslySetInnerHTML={{ __html: highlightedCode }} />
       </pre>
     </div>
   );
@@ -187,7 +202,7 @@ function TableBlock({
   );
   const firstRowLooksLikeHeader =
     rows.length > 1 &&
-    rows[0].every((cell) => cell.text && !cell.images.length) &&
+    rows[0].every((cell) => cell.text && !cell.images.length && !cell.text.includes("\n")) &&
     rows[0].length === maxColumns;
   const totalWidth = columnWidths?.reduce((sum, width) => sum + width, 0) ?? 0;
 
@@ -208,31 +223,61 @@ function TableBlock({
           </colgroup>
         )}
         <tbody>
-          {rows.map((row, rowIndex) => (
-            <tr key={rowIndex}>
-              {row.map((cell, cellIndex) => {
-                const Tag = firstRowLooksLikeHeader && rowIndex === 0 ? "th" : "td";
-                const imageOnly = cell.images.length > 0 && !cell.text;
+          {rows.map((row, rowIndex) => {
+            const skippedPositions = new Set<number>();
 
-                return (
-                  <Tag
-                    key={cellIndex}
-                    colSpan={cell.colSpan}
-                    className={`border border-[#dcdfe5] px-[14px] py-[12px] text-left ${
-                      imageOnly ? "align-middle" : "align-top"
-                    } ${
-                      Tag === "th"
-                        ? "bg-[#f7f8fa] text-[#4b5563] text-[12px] uppercase tracking-[0.02em]"
-                        : "text-[#3f3f46]"
-                    }`}
-                    style={{ fontWeight: Tag === "th" ? 600 : 400 }}
-                  >
-                    <CellContent cell={cell} />
-                  </Tag>
-                );
-              })}
-            </tr>
-          ))}
+            for (let r = 0; r < rowIndex; r++) {
+              const prevRow = rows[r];
+              let colOffset = 0;
+              prevRow.forEach((cell) => {
+                const rowspan = cell.rowSpan ?? 1;
+                if (rowspan > rowIndex - r) {
+                  const colspan = cell.colSpan ?? 1;
+                  for (let c = 0; c < colspan; c++) {
+                    skippedPositions.add(colOffset + c);
+                  }
+                }
+                colOffset += cell.colSpan ?? 1;
+              });
+            }
+
+            const visibleCells: { cell: ManualTableCell; colIndex: number }[] = [];
+            let currentColIndex = 0;
+            row.forEach((cell) => {
+              while (skippedPositions.has(currentColIndex)) {
+                currentColIndex++;
+              }
+              visibleCells.push({ cell, colIndex: currentColIndex });
+              currentColIndex += cell.colSpan ?? 1;
+            });
+
+            return (
+              <tr key={rowIndex}>
+                {visibleCells.map(({ cell, colIndex }, visibleIndex) => {
+                  const Tag = firstRowLooksLikeHeader && rowIndex === 0 ? "th" : "td";
+                  const imageOnly = cell.images.length > 0 && !cell.text;
+
+                  return (
+                    <Tag
+                      key={colIndex}
+                      colSpan={cell.colSpan && cell.colSpan > 1 ? cell.colSpan : undefined}
+                      rowSpan={cell.rowSpan && cell.rowSpan > 1 ? cell.rowSpan : undefined}
+                      className={`border border-[#dcdfe5] px-[14px] py-[12px] text-left ${
+                        imageOnly ? "align-middle" : "align-top"
+                      } ${
+                        Tag === "th"
+                          ? "bg-[#f7f8fa] text-[#4b5563] text-[12px] uppercase tracking-[0.02em]"
+                          : "text-[#3f3f46]"
+                      }`}
+                      style={{ fontWeight: Tag === "th" ? 600 : 400 }}
+                    >
+                      <CellContent cell={cell} />
+                    </Tag>
+                  );
+                })}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
@@ -332,6 +377,14 @@ function CellContent({ cell }: { cell: ManualTableCell }) {
           alt={image.alt || ""}
           className="max-h-[320px] w-auto max-w-full rounded-[8px] object-contain mx-auto"
           loading="lazy"
+          style={
+            image.width || image.height
+              ? {
+                  width: image.width ? `${image.width}px` : undefined,
+                  height: image.height ? `${image.height}px` : undefined,
+                }
+              : undefined
+          }
         />
       ))}
       {cell.text && <CellText text={cell.text} />}
@@ -527,13 +580,41 @@ function resolveAssetPath(src: string) {
 }
 
 function renderInlineContent(text: string) {
-  const parts = text.split(/(`[^`]+`)/g);
+  const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)]+\))/g);
   return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={index}>{part.slice(2, -2)}</strong>
+      );
+    }
     if (part.startsWith("`") && part.endsWith("`")) {
       return (
-        <code key={index} className="bg-[#f0f0f0] text-[#c0392b] px-[5px] py-[2px] rounded-[4px] text-[0.92em]" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
+        <code key={index} className="bg-[#f0f0f0] text-black px-[5px] py-[2px] rounded-[4px] text-[0.92em]" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
           {part.slice(1, -1)}
         </code>
+      );
+    }
+    const linkMatch = part.match(/^\[([^\]]+)\]\((#[^)]+)\)$/);
+    if (linkMatch) {
+      return (
+        <a key={index} href={linkMatch[2]} className="text-[#345bb4] hover:underline cursor-pointer">
+          {linkMatch[1]}
+        </a>
+      );
+    }
+
+    const externalLinkMatch = part.match(/^\[([^\]]+)\]\((https?:\/\/[^)]+)\)$/);
+    if (externalLinkMatch) {
+      return (
+        <a
+          key={index}
+          href={externalLinkMatch[2]}
+          target="_blank"
+          rel="noreferrer"
+          className="text-[#345bb4] underline decoration-[#345bb4]/35 underline-offset-[3px] hover:decoration-[#345bb4] cursor-pointer"
+        >
+          {externalLinkMatch[1]}
+        </a>
       );
     }
 

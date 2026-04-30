@@ -32,7 +32,7 @@ export function ManualRenderer({ sections }: ManualRendererProps) {
 function ManualSectionView({ section }: { section: ManualSection }) {
   return (
     <section id={section.id} className="scroll-mt-[120px]">
-      <h2 className="text-[#345bb4] text-[28px] lg:text-[40px] leading-[1.2] mb-[28px] lg:mb-[40px]" style={{ fontWeight: 650, letterSpacing: "-0.03em" }}>
+      <h2 className="text-[#141414] text-[28px] lg:text-[40px] leading-[1.2] mb-[28px] lg:mb-[40px]" style={{ fontWeight: 650, letterSpacing: "-0.03em" }}>
         {section.title}
       </h2>
       <div className="flex flex-col gap-[18px]">

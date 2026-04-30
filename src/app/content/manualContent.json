@@ -3783,7 +3783,7 @@
           "ordered": true,
           "items": [
             {
-              "text": "Install Docker and GPU Runtime",
+              "text": "**Install Docker and GPU Runtime**",
               "level": 0
             }
           ],
@@ -3830,7 +3830,7 @@
           "ordered": true,
           "items": [
             {
-              "text": "Prepare Docker Configuration",
+              "text": "**Prepare Docker Configuration**",
               "level": 0
             }
           ],
@@ -3841,7 +3841,7 @@
           "ordered": false,
           "items": [
             {
-              "text": "Create a docker-compose.yml file:",
+              "text": "Create a `docker-compose.yml` file:",
               "level": 0
             }
           ]
@@ -3856,7 +3856,7 @@
           "ordered": true,
           "items": [
             {
-              "text": "Select and Pull Docker Image",
+              "text": "**Select and Pull Docker Image**",
               "level": 0
             }
           ],
@@ -3911,7 +3911,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Update <image tag> in docker-compose.yml accordingly."
+          "text": "Update `<image tag>` in `docker-compose.yml` accordingly:"
         },
         {
           "type": "code",
@@ -3923,7 +3923,7 @@
           "ordered": true,
           "items": [
             {
-              "text": "Start Docker Container",
+              "text": "**Start Docker Container**",
               "level": 0
             }
           ],
@@ -3936,7 +3936,7 @@
         },
         {
           "type": "paragraph",
-          "text": "If Docker container already exists:"
+          "text": "**If Docker container already exists:**"
         },
         {
           "type": "code",
@@ -3948,7 +3948,7 @@
           "ordered": true,
           "items": [
             {
-              "text": "Enter Docker Container",
+              "text": "**Enter Docker Container**",
               "level": 0
             }
           ],
@@ -3964,7 +3964,7 @@
           "ordered": true,
           "items": [
             {
-              "text": "Configure Tactile Data Rate",
+              "text": "**Configure Tactile Data Rate**",
               "level": 0
             }
           ],
@@ -4006,7 +4006,7 @@
             ],
             [
               {
-                "text": "fps",
+                "text": "`fps`",
                 "images": []
               },
               {
@@ -4024,7 +4024,7 @@
             ],
             [
               {
-                "text": "infer_from_device",
+                "text": "`infer_from_device`",
                 "images": []
               },
               {
@@ -4042,7 +4042,7 @@
             ],
             [
               {
-                "text": "require_jpeg",
+                "text": "`require_jpeg`",
                 "images": []
               },
               {
@@ -4077,7 +4077,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Compatibility Note (Older Versions)"
+          "text": "**Compatibility Note (Older Versions)**"
         },
         {
           "type": "paragraph",
@@ -4106,7 +4106,7 @@
           "ordered": true,
           "items": [
             {
-              "text": "Run High-Performance Tactile Pipeline",
+              "text": "**Run High-Performance Tactile Pipeline**",
               "level": 0
             }
           ],
@@ -4449,7 +4449,7 @@
           "ordered": false,
           "items": [
             {
-              "text": "Do not run tactile_180fps.py and Sharpa Pilot simultaneously, as they may use conflicting tactile pipelines.",
+              "text": "Do not run `tactile_180fps.py` and Sharpa Pilot simultaneously, as they may use conflicting tactile pipelines.",
               "level": 0
             },
             {
@@ -4579,7 +4579,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Definition"
+          "text": "**Definition**"
         },
         {
           "type": "paragraph",
@@ -4587,7 +4587,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Representation"
+          "text": "**Representation**"
         },
         {
           "type": "list",
@@ -4621,14 +4621,14 @@
         },
         {
           "type": "paragraph",
-          "text": "Interpretation"
+          "text": "**Interpretation**"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
             {
-              "text": "Captures the spatial distribution of contact",
+              "text": "Captures the **spatial distribution of contact**",
               "level": 0
             },
             {
@@ -4651,7 +4651,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Mapping Between Grayscale Value and Deformation Depth"
+          "text": "**Mapping Between Grayscale Value and Deformation Depth**"
         },
         {
           "type": "paragraph",
@@ -4717,7 +4717,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Definition"
+          "text": "**Definition**"
         },
         {
           "type": "paragraph",
@@ -4729,7 +4729,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Representation"
+          "text": "**Representation**"
         },
         {
           "type": "list",
@@ -4755,7 +4755,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Interpretation"
+          "text": "**Interpretation**"
         },
         {
           "type": "list",
@@ -4779,7 +4779,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Definition"
+          "text": "**Definition**"
         },
         {
           "type": "paragraph",
@@ -4809,7 +4809,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Coordinate System"
+          "text": "**Coordinate System**"
         },
         {
           "type": "paragraph",
@@ -4847,14 +4847,14 @@
         },
         {
           "type": "paragraph",
-          "text": "Interpretation"
+          "text": "**Interpretation**"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
             {
-              "text": "The output represents the global effect of contact, not local distribution",
+              "text": "The output represents the **global effect of contact**, not local distribution",
               "level": 0
             },
             {
@@ -4879,7 +4879,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Definition"
+          "text": "**Definition**"
         },
         {
           "type": "paragraph",
@@ -4905,7 +4905,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Interpretation"
+          "text": "**Interpretation**"
         },
         {
           "type": "list",
@@ -4927,7 +4927,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Notes"
+          "text": "**Notes**"
         },
         {
           "type": "paragraph",
@@ -4939,7 +4939,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Access"
+          "text": "**Access**"
         },
         {
           "type": "paragraph",
@@ -4950,7 +4950,7 @@
           "ordered": false,
           "items": [
             {
-              "text": "Precomputed sensor model assets: Check the Assets/tactile_sensor_digital_model folder in the downloading resource.",
+              "text": "**Precomputed sensor model assets**: Check the `Assets/tactile_sensor_digital_model` folder in the downloading resource.",
               "level": 0
             },
             {
@@ -4994,11 +4994,11 @@
           "ordered": false,
           "items": [
             {
-              "text": "SDK interfaces: Use the SDK to obtain the 3D point's normal vector (nx, ny, nz), which corresponds to the 2D point coordinates (row, column).",
+              "text": "**SDK interfaces**: Use the SDK to obtain the 3D point's normal vector (nx, ny, nz), which corresponds to the 2D point coordinates (row, column).",
               "level": 0
             },
             {
-              "text": "[See the \"Tactile Data Acquisition\" section in Sharpa Wave SDK](#sdk-overview).",
+              "text": "See the \"[Tactile Data](#2-5-tactile-data)\" section in Sharpa Wave SDK.",
               "level": 1
             }
           ]
@@ -5028,11 +5028,11 @@
           "ordered": false,
           "items": [
             {
-              "text": "Fast integration using standardized interfaces and external cabling",
+              "text": "**Fast integration** using standardized interfaces and external cabling",
               "level": 0
             },
             {
-              "text": "Compact integration with internal routing and minimal wrist length",
+              "text": "**Compact integration** with internal routing and minimal wrist length",
               "level": 0
             }
           ]
@@ -5058,15 +5058,15 @@
           "ordered": false,
           "items": [
             {
-              "text": "Flange: Adapts to standard robot interfaces via a flange adapter",
+              "text": "**Flange**: Adapts to standard robot interfaces via a flange adapter",
               "level": 0
             },
             {
-              "text": "Wrist: Connects directly to the robot wrist using screws; requires a custom adapter",
+              "text": "**Wrist**: Connects directly to the robot wrist using screws; requires a custom adapter",
               "level": 0
             },
             {
-              "text": "Internal: Integrates via an internal pogo pin interface, replacing the wrist module",
+              "text": "**Internal**: Integrates via an internal pogo pin interface, replacing the wrist module",  
               "level": 0
             }
           ]
@@ -5088,22 +5088,22 @@
         },
         {
           "type": "paragraph",
-          "text": "Electrical interfaces"
+          "text": "**Electrical interfaces**"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
             {
-              "text": "Wrist connector: External aviation connector for power and communication",
+              "text": "**Wrist connector:** External aviation connector for power and communication",
               "level": 0
             },
             {
-              "text": "Internal pin pad: Pogo pin interface for internal power and communication",
+              "text": "**Internal pin pad:** Pogo pin interface for internal power and communication",
               "level": 0
             },
             {
-              "text": "Requires a custom 3 × 6 pogo pin array for mating (not a standard connector)",
+              "text": "Requires a **custom 3 × 6 pogo pin array** for mating (not a standard connector)",
               "level": 1
             }
           ]
@@ -5823,7 +5823,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Integrating a camera at the wrist can significantly enhance perception for manipulation and teleoperation tasks.\nThis section provides design guidelines for mounting a camera using the wrist interface."
+          "text": "Integrating a camera at the wrist can significantly enhance perception for manipulation and teleoperation tasks.\nThis section provides design guidelines for mounting a camera using the **wrist interface.**"
         },
         {
           "type": "paragraph",
@@ -5884,7 +5884,7 @@
         },
         {
           "type": "paragraph",
-          "text": "A slight downward tilt (approximately 20°) is recommended to:"
+          "text": "A slight downward tilt (approximately **20°**) is recommended to:"
         },
         {
           "type": "list",
@@ -5929,7 +5929,7 @@
         },
         {
           "type": "paragraph",
-          "text": "The camera should be positioned such that its FOV covers the palm and fingers."
+          "text": "The camera should be positioned such that its FOV covers the **palm and fingers.**"
         },
         {
           "type": "paragraph",
@@ -6050,11 +6050,11 @@
           "ordered": false,
           "items": [
             {
-              "text": "a wrist-side component that attaches to the wrist interface",
+              "text": "a **wrist-side component** that attaches to the wrist interface",
               "level": 0
             },
             {
-              "text": "a camera-side component that mounts the camera",
+              "text": "a **camera-side component** that mounts the camera",
               "level": 0
             }
           ]
@@ -6124,11 +6124,11 @@
           "ordered": false,
           "items": [
             {
-              "text": "Use 3D printing for rapid prototyping and design validation",
+              "text": "Use **3D printing** for rapid prototyping and design validation",
               "level": 0
             },
             {
-              "text": "After validation, use CNC machining for final parts to ensure strength and precision",
+              "text": "After validation, use **CNC machining** for final parts to ensure strength and precision",
               "level": 0
             }
           ]
@@ -6210,7 +6210,7 @@
           "ordered": false,
           "items": [
             {
-              "text": "Python SDK is recommended for:",
+              "text": "**Python SDK** is recommended for:",
               "level": 0
             },
             {
@@ -6226,7 +6226,7 @@
               "level": 1
             },
             {
-              "text": "C++ SDK is recommended for:",
+              "text": "**C++ SDK** is recommended for:",
               "level": 0
             },
             {
@@ -6266,7 +6266,7 @@
           "ordered": false,
           "items": [
             {
-              "text": "Device Management",
+              "text": "**Device Management**",
               "level": 0
             },
             {
@@ -6282,7 +6282,7 @@
               "level": 1
             },
             {
-              "text": "Motion Control",
+              "text": "**Motion Control**",
               "level": 0
             },
             {
@@ -6302,7 +6302,7 @@
               "level": 1
             },
             {
-              "text": "State Feedback",
+              "text": "**State Feedback**",
               "level": 0
             },
             {
@@ -6314,7 +6314,7 @@
               "level": 1
             },
             {
-              "text": "Tactile Sensing",
+              "text": "**Tactile Sensing**",
               "level": 0
             },
             {
@@ -6342,7 +6342,7 @@
               "level": 1
             },
             {
-              "text": "System Configuration",
+              "text": "**System Configuration**",
               "level": 0
             },
             {
@@ -6367,14 +6367,14 @@
         },
         {
           "type": "paragraph",
-          "text": "The SDK follows a manager–device architecture:"
+          "text": "The SDK follows a **manager–device architecture:**"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
             {
-              "text": "SharpaWaveManager",
+              "text": "**SharpaWaveManager**",
               "level": 0
             },
             {
@@ -6386,7 +6386,7 @@
               "level": 1
             },
             {
-              "text": "SharpaWave",
+              "text": "**SharpaWave**",
               "level": 0
             },
             {
@@ -6489,7 +6489,7 @@
           "ordered": false,
           "items": [
             {
-              "text": "Only one control source can actively send motion commands",
+              "text": "Only **one control source** can actively send motion commands",
               "level": 0
             },
             {
@@ -6500,7 +6500,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Important:"
+          "text": "**Important:**"
         },
         {
           "type": "list",
@@ -6661,7 +6661,7 @@
         {
           "type": "code",
           "language": "text",
-          "code": "/usr/include/sharpa-wave-sdk/SharpaWaveSDK.h\n/usr/lib/sharpa-wave-sdk/libsharpa-wave-sdk.so\n/usr/lib/sharpa-wave-sdk/python/sharpa/__init__.py\n/usr/lib/sharpa-wave-sdk/python/sharpa/sharpa.cpython-310-x86_64-linux-gnu.so\n/usr/lib/sharpa-wave-sdk/python/sharpa/sharpa.cpython-311-x86_64-linux-gnu.so\n/usr/lib/sharpa-wave-sdk/python/sharpa/sharpa.cpython-312-x86_64-linux-gnu.so\n/usr/lib/sharpa-wave-sdk/python/sharpa/sharpa.cpython-313-x86_64-linux-gnu.so\n/usr/share/sharpa-wave-sdk/README.md\n/usr/share/sharpa-wave-sdk/config/...\n/usr/share/sharpa-wave-sdk/sample/..."
+          "code": "`/usr/include/sharpa-wave-sdk/`SharpaWaveSDK.h\n/usr/lib/sharpa-wave-sdk/libsharpa-wave-sdk.so\n/usr/lib/sharpa-wave-sdk/python/sharpa/__init__.py\n/usr/lib/sharpa-wave-sdk/python/sharpa/sharpa.cpython-310-x86_64-linux-gnu.so\n/usr/lib/sharpa-wave-sdk/python/sharpa/sharpa.cpython-311-x86_64-linux-gnu.so\n/usr/lib/sharpa-wave-sdk/python/sharpa/sharpa.cpython-312-x86_64-linux-gnu.so\n/usr/lib/sharpa-wave-sdk/python/sharpa/sharpa.cpython-313-x86_64-linux-gnu.so\n/usr/share/sharpa-wave-sdk/README.md\n/usr/share/sharpa-wave-sdk/config/...\n/usr/share/sharpa-wave-sdk/sample/..."
         },
         {
           "type": "paragraph",
@@ -6672,19 +6672,19 @@
           "ordered": false,
           "items": [
             {
-              "text": "the public C++ header in /usr/include/sharpa-wave-sdk/",
+              "text": "the public C++ header in `/usr/include/sharpa-wave-sdk/`",
               "level": 0
             },
             {
-              "text": "the runtime library in /usr/lib/sharpa-wave-sdk/",
+              "text": "the runtime library in `/usr/lib/sharpa-wave-sdk/`",
               "level": 0
             },
             {
-              "text": "the Python package in /usr/lib/sharpa-wave-sdk/python/",
+              "text": "the Python package in `/usr/lib/sharpa-wave-sdk/python/`",
               "level": 0
             },
             {
-              "text": "configuration files and examples in /usr/share/sharpa-wave-sdk/",
+              "text": "configuration files and examples in `/usr/share/sharpa-wave-sdk/`",
               "level": 0
             }
           ]
@@ -6871,7 +6871,7 @@
         {
           "type": "code",
           "language": "text",
-          "code": "/usr/share/sharpa-wave-sdk/sample"
+          "code": "`/usr/share/sharpa-wave-sdk/sample`"
         },
         {
           "type": "heading",
@@ -6926,7 +6926,7 @@
         },
         {
           "type": "paragraph",
-          "text": "get_all_devices() returns a list of DeviceInfo structures."
+          "text": "`get_all_devices()` returns a list of `DeviceInfo` structures."
         },
         {
           "type": "heading",
@@ -6966,7 +6966,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use SharpaWaveConfig when tactile behavior or startup behavior must be customized."
+          "text": "Use `SharpaWaveConfig` when tactile behavior or startup behavior must be customized."
         },
         {
           "type": "code",
@@ -6997,7 +6997,7 @@
         },
         {
           "type": "paragraph",
-          "text": "After disconnecting, references to the old SharpaWave object must not be reused."
+          "text": "After disconnecting, references to the old `SharpaWave` object must not be reused."
         },
         {
           "type": "heading",
@@ -7037,7 +7037,7 @@
         },
         {
           "type": "paragraph",
-          "text": "After obtaining a SharpaWave object from SharpaWaveManager::connect(...), the application should call start() before using tactile-related functionality."
+          "text": "After obtaining a `SharpaWave` object from `SharpaWaveManager::connect(...)`, the application should call `start()` before using tactile-related functionality."
         },
         {
           "type": "code",
@@ -7046,7 +7046,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use stop() when hand operation or tactile data transmission and reception need to be stopped without fully disconnecting the device."
+          "text": "Use `stop()` when hand operation or tactile data transmission and reception need to be stopped without fully disconnecting the device."
         },
         {
           "type": "code",
@@ -7066,7 +7066,7 @@
         },
         {
           "type": "paragraph",
-          "text": "After destroy(), internal resources are released. The object reference should be treated as invalid until the manager reconnects the device."
+          "text": "After `destroy()`, internal resources are released. The object reference should be treated as invalid until the manager reconnects the device."
         },
         {
           "type": "heading",
@@ -7097,7 +7097,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use get_device_info() when you need structured metadata."
+          "text": "Use `get_device_info()` when you need structured metadata."
         },
         {
           "type": "code",
@@ -7106,7 +7106,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use get_device_info_json() when you need a serialized JSON representation."
+          "text": "Use `get_device_info_json()` when you need a serialized JSON representation."
         },
         {
           "type": "code",
@@ -7362,19 +7362,19 @@
           "ordered": false,
           "items": [
             {
-              "text": "ZERO_FORCE",
+              "text": "`ZERO_FORCE`",
               "level": 0
             },
             {
-              "text": "POSITION",
+              "text": "`POSITION`",
               "level": 0
             },
             {
-              "text": "ADMITTANCE",
+              "text": "`ADMITTANCE`",
               "level": 0
             },
             {
-              "text": "MIT",
+              "text": "`MIT`",
               "level": 0
             }
           ]
@@ -7803,7 +7803,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Typical payloads in frame[\"content\"] may include:"
+          "text": "Typical payloads in `frame[\"content\"]` may include:"
         },
         {
           "type": "paragraph",
@@ -7885,11 +7885,11 @@
         },
         {
           "type": "paragraph",
-          "text": "Most SDK operations return either an Error object or a tuple of (Error, value)."
+          "text": "Most SDK operations return either an `Error` object or a tuple of (Error, value)."
         },
         {
           "type": "paragraph",
-          "text": "An Error with code == 0 indicates that the operation completed successfully. If code != 0, the operation failed, and the message field provides additional diagnostic information."
+          "text": "An Error with code == 0 indicates that the operation completed successfully. If `code != 0`, the operation failed, and the `message` field provides additional diagnostic information."
         },
         {
           "type": "paragraph",
@@ -7906,7 +7906,7 @@
         },
         {
           "type": "paragraph",
-          "text": "For APIs that return (Error, value), always check the Error object before using the returned value:"
+          "text": "For APIs that return `(Error, value)`, always check the `Error` object before using the returned value:"
         },
         {
           "type": "code",
@@ -7922,15 +7922,15 @@
           "ordered": false,
           "items": [
             {
-              "text": "always check the returned Error before continuing",
+              "text": "always check the returned `Error` before continuing",
               "level": 0
             },
             {
-              "text": "log both Error.code and Error.message during debugging",
+              "text": "log both `Error.code` and `Error.message` during debugging",
               "level": 0
             },
             {
-              "text": "do not assume that a returned value is valid unless the associated Error indicates success",
+              "text": "do not assume that a returned value is valid unless the associated `Error` indicates success",
               "level": 0
             }
           ]
@@ -7943,7 +7943,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use get_fault_code() to inspect current device and software fault conditions."
+          "text": "Use `get_fault_code()` to inspect current device and software fault conditions."
         },
         {
           "type": "code",
@@ -8372,7 +8372,7 @@
         },
         {
           "type": "paragraph",
-          "text": "get_all_devices() returns a list of DeviceInfo structures."
+          "text": "`get_all_devices()` returns a list of DeviceInfo structures."
         },
         {
           "type": "heading",
@@ -8412,7 +8412,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use SharpaWaveConfig when tactile behavior or startup behavior must be customized."
+          "text": "Use `SharpaWaveConfig` when tactile behavior or startup behavior must be customized."
         },
         {
           "type": "code",
@@ -8483,7 +8483,7 @@
         },
         {
           "type": "paragraph",
-          "text": "After obtaining a SharpaWave object from SharpaWaveManager::connect(...), the application should call start() before using tactile-related functionality."
+          "text": "After obtaining a `SharpaWave` object from `SharpaWaveManager::connect(...)`, the application should call `start()` before using tactile-related functionality."
         },
         {
           "type": "code",
@@ -8492,7 +8492,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use stop() when hand operation or tactile data transmission and reception need to be stopped without fully disconnecting the device."
+          "text": "Use `stop()` when hand operation or tactile data transmission and reception need to be stopped without fully disconnecting the device."
         },
         {
           "type": "code",
@@ -8512,7 +8512,7 @@
         },
         {
           "type": "paragraph",
-          "text": "After destroy(), internal resources are released. The object reference should be treated as invalid until the manager reconnects the device."
+          "text": "After `destroy()`, internal resources are released. The object reference should be treated as invalid until the manager reconnects the device."
         },
         {
           "type": "heading",
@@ -8543,7 +8543,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use get_device_info() when you need structured metadata."
+          "text": "Use `get_device_info()` when you need structured metadata."
         },
         {
           "type": "code",
@@ -8552,7 +8552,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use get_device_info_json() when you need a serialized JSON representation."
+          "text": "Use `get_device_info_json()` when you need a serialized JSON representation."
         },
         {
           "type": "code",
@@ -8908,7 +8908,7 @@
         },
         {
           "type": "paragraph",
-          "text": "To utilize this mode, first switch the control mode to ADMITTANCE and establish the nominal target trajectory using the joint position interface:"
+          "text": "To utilize this mode, first switch the control mode to `ADMITTANCE` and establish the nominal target trajectory using the joint position interface:"
         },
         {
           "type": "code",
@@ -9000,11 +9000,11 @@
         },
         {
           "type": "paragraph",
-          "text": "Note: Improper kp and kdvalues may cause system oscillation."
+          "text": "Note: Improper `kp` and `kd` values may cause system oscillation."
         },
         {
           "type": "paragraph",
-          "text": "It is recommended to keep Kd at its default value, and tune joint stiffness by adjusting Kp. The recommended Kp range is as follows(applicable only when torque_source is set to current(default); otherwise, oscillation may occur):"
+          "text": "It is recommended to keep `Kd` at its default value, and tune joint stiffness by adjusting `Kp`. The recommended Kp range is as follows(applicable only when `torque_source` is set to current(default); **otherwise, oscillation may occur**):"
         },
         {
           "type": "heading",
@@ -9014,7 +9014,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use get_states() to read the latest joint state packet."
+          "text": "`Use get_states()` to read the latest joint state packet."
         },
         {
           "type": "code",
@@ -9023,30 +9023,30 @@
         },
         {
           "type": "paragraph",
-          "text": "The returned State contains:"
+          "text": "The returned `State` contains:"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
             {
-              "text": "timestamp",
+              "text": "`timestamp`",
               "level": 0
             },
             {
-              "text": "sequence",
+              "text": "`sequence`",
               "level": 0
             },
             {
-              "text": "angles",
+              "text": "`angles`",
               "level": 0
             },
             {
-              "text": "velocities",
+              "text": "`velocities`",
               "level": 0
             },
             {
-              "text": "torques",
+              "text": "`torques`",
               "level": 0
             }
           ]
@@ -9096,11 +9096,11 @@
           "ordered": false,
           "items": [
             {
-              "text": "has_tactile_support() indicates whether the connected device supports tactile sensing.",
+              "text": "`has_tactile_support()` indicates whether the connected device supports tactile sensing.",
               "level": 0
             },
             {
-              "text": "is_tactile_ready() indicates whether the tactile pipeline has been initialized successfully and is ready to provide data.",
+              "text": "`is_tactile_ready()` indicates whether the tactile pipeline has been initialized successfully and is ready to provide data.",
               "level": 0
             }
           ]
@@ -9198,7 +9198,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use fetch_tactile_frame() when you want the most general data representation.\nUse fetch_tactile_frame_compact() when you want a simplified structure with commonly used outputs unpacked into vectors."
+          "text": "Use `fetch_tactile_frame()` when you want the most general data representation.\nUse fetch_tactile_frame_compact() when you want a simplified structure with commonly used outputs unpacked into vectors."
         },
         {
           "type": "heading",
@@ -9236,7 +9236,7 @@
         },
         {
           "type": "paragraph",
-          "text": "The frame data returned by fetch_tactile_frame() or delivered through set_tactile_callback() contains a content field:"
+          "text": "The frame data returned by `fetch_tactile_frame()` or delivered through `set_tactile_callback()` contains a `content field:"
         },
         {
           "type": "code",
@@ -9245,7 +9245,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Frame::content is a map from payload name to payload data block."
+          "text": "`Frame::content` is a map from payload name to payload data block."
         },
         {
           "type": "list",
@@ -9256,7 +9256,7 @@
               "level": 0
             },
             {
-              "text": "The value is an instance of sharpa::tactile::DataBlock, which stores the underlying tensor-like data buffer together with its shape information.",
+              "text": "The value is an instance of `sharpa::tactile::DataBlock`, which stores the underlying tensor-like data buffer together with its shape information.",
               "level": 0
             }
           ]
@@ -9274,19 +9274,19 @@
           "ordered": false,
           "items": [
             {
-              "text": "shape() → dimensions of the payload, for example [1, H, W] or [1, 1, 6]",
+              "text": "`shape()` → dimensions of the payload, for example `[1, H, W]` or `[1, 1, 6]`",
               "level": 0
             },
             {
-              "text": "size() → number of elements",
+              "text": "`size()` → number of elements",
               "level": 0
             },
             {
-              "text": "nbytes() → total byte size",
+              "text": "`nbytes()` → total byte size",
               "level": 0
             },
             {
-              "text": "data() → raw pointer to the underlying buffer",
+              "text": "`data()` → raw pointer to the underlying buffer",
               "level": 0
             }
           ]
@@ -9302,11 +9302,11 @@
         },
         {
           "type": "paragraph",
-          "text": "Because data() returns a raw pointer, the application must cast it to the correct element type, such as uint8_t* or float*, depending on the payload being read."
+          "text": "Because data() returns a raw pointer, the application must cast it to the correct element type, such as `uint8_t*` or `float*`, depending on the payload being read."
         },
         {
           "type": "paragraph",
-          "text": "Typical payloads in Frame::content may include:"
+          "text": "Typical payloads in `Frame::content` may include:"
         },
         {
           "type": "paragraph",
@@ -9314,7 +9314,7 @@
         },
         {
           "type": "paragraph",
-          "text": "A CompactFrame exposes commonly used payloads through direct vectors and shape objects rather than a generic content map. Use CompactFrame when you want a simpler access path to standard tactile outputs, and use the full Frame representation when you need flexible payload lookup."
+          "text": "`A CompactFrame` exposes commonly used payloads through direct vectors and shape objects rather than a generic `content map`. Use `CompactFrame` when you want a simpler access path to standard tactile outputs, and use the full `Frame` representation when you need flexible payload lookup."
         },
         {
           "type": "code",
@@ -9392,11 +9392,11 @@
         },
         {
           "type": "paragraph",
-          "text": "Most SDK operations return either sharpa::Error or std::pair<Error, T>."
+          "text": "Most SDK operations return either `sharpa::Error` or `std::pair<Error, T>.`"
         },
         {
           "type": "paragraph",
-          "text": "An Error with code == 0 indicates that the operation completed successfully.\n If code != 0, the operation failed, and the message field provides additional diagnostic information."
+          "text": "An `Erro`r` with `code == 0` indicates that the operation completed successfully.\n `If code != 0`, the operation failed, and the `message` field provides additional diagnostic information."
         },
         {
           "type": "paragraph",
@@ -9413,7 +9413,7 @@
         },
         {
           "type": "paragraph",
-          "text": "For APIs that return std::pair<Error, T>, always check the Error object before using the returned value:"
+          "text": "For APIs that return `std::pair<Error, T>`, always check the Error object before using the returned value:"
         },
         {
           "type": "code",
@@ -9450,7 +9450,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use get_fault_code() to inspect current device and software fault conditions."
+          "text": "`Use get_fault_code()` to inspect current device and software fault conditions."
         },
         {
           "type": "code",
@@ -9459,7 +9459,7 @@
         },
         {
           "type": "paragraph",
-          "text": "The returned map associates each FaultCode with a list of relevant indices, if applicable.\n The meaning of these indices depends on the fault context. For example:"
+          "text": "The returned map associates each `FaultCode` with a list of relevant indices, if applicable.\n The meaning of these indices depends on the fault context. For example:"
         },
         {
           "type": "list",
@@ -9662,15 +9662,15 @@
           "ordered": false,
           "items": [
             {
-              "text": "retry_tactile_alternate_port()",
+              "text": "`retry_tactile_alternate_port()`",
               "level": 0
             },
             {
-              "text": "get_next_available_tactile_port()",
+              "text": "`get_next_available_tactile_port()`",
               "level": 0
             },
             {
-              "text": "bind_tactile_port()",
+              "text": "`bind_tactile_port()`",
               "level": 0
             }
           ]
@@ -9714,7 +9714,7 @@
           "ordered": false,
           "items": [
             {
-              "text": "always log Error.code and Error.message",
+              "text": "always log `Error.code` and `Error.message`",
               "level": 0
             },
             {
@@ -12401,11 +12401,11 @@
         },
         {
           "type": "paragraph",
-          "text": "Symptom\nA joint does not move or behaves abnormally."
+          "text": "**Symptom**\nnA joint does not move or behaves abnormally."
         },
         {
           "type": "paragraph",
-          "text": "Steps to check"
+          "text": "**Steps to check**"
         },
         {
           "type": "list",
@@ -12434,11 +12434,11 @@
         },
         {
           "type": "paragraph",
-          "text": "Symptom\nJoint does not return to correct zero position."
+          "text": "**Symptom**\nJoint does not return to correct zero position."
         },
         {
           "type": "paragraph",
-          "text": "Steps to check"
+          "text": "**Steps to check**"
         },
         {
           "type": "list",
@@ -12467,11 +12467,11 @@
         },
         {
           "type": "paragraph",
-          "text": "Symptom\nActual joint motion does not follow commands."
+          "text": "**Symptom**\nActual joint motion does not follow commands."
         },
         {
           "type": "paragraph",
-          "text": "Steps to check"
+          "text": "**Steps to check**"
         },
         {
           "type": "list",
@@ -12504,11 +12504,11 @@
         },
         {
           "type": "paragraph",
-          "text": "Symptom\nGrasping force is insufficient."
+          "text": "**Symptom**\nGrasping force is insufficient."
         },
         {
           "type": "paragraph",
-          "text": "Steps to check"
+          "text": "**Steps to check**"
         },
         {
           "type": "list",
@@ -12543,7 +12543,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Symptom\nNo response in tactile visualization or SDK data."
+          "text": "**Symptom**\nNo response in tactile visualization or SDK data."
         },
         {
           "type": "table",
@@ -12578,7 +12578,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Basic checks"
+          "text": "**Basic checks**"
         },
         {
           "type": "list",
@@ -12601,7 +12601,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Advanced checks"
+          "text": "**Advanced checks**"
         },
         {
           "type": "list",
@@ -12641,11 +12641,11 @@
         },
         {
           "type": "paragraph",
-          "text": "Symptom\nNon-zero force or deformation without contact."
+          "text": "**Symptom**\nNon-zero force or deformation without contact."
         },
         {
           "type": "paragraph",
-          "text": "Steps to check"
+          "text": "**Steps to check**"
         },
         {
           "type": "list",
@@ -12689,11 +12689,11 @@
         },
         {
           "type": "paragraph",
-          "text": "Symptom\nTactile visualization is slow or <30 Hz."
+          "text": "**Symptom**\nTactile visualization is slow or <30 Hz."
         },
         {
           "type": "paragraph",
-          "text": "Steps to check"
+          "text": "**Steps to check**"
         },
         {
           "type": "list",
@@ -12770,7 +12770,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use ErrorCode when:"
+          "text": "**Use ErrorCode when:**"
         },
         {
           "type": "list",
@@ -12836,7 +12836,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use FaultCode when:"
+          "text": "**Use FaultCode when:**"
         },
         {
           "type": "list",
@@ -13096,11 +13096,11 @@
         },
         {
           "type": "paragraph",
-          "text": "This notice applies to the use of this product, unless otherwise specified in a separate written agreement."
+          "text": "**This notice applies to the use of this product, unless otherwise specified in a separate written agreement.**"
         },
         {
           "type": "paragraph",
-          "text": "Users are advised to thoroughly read and understand this legal notice before using the product. Continued use of the product constitutes acceptance of and agreement to be bound by the following terms."
+          "text": "**Users are advised to thoroughly read and understand this legal notice before using the product. Continued use of the product constitutes acceptance of and agreement to be bound by the following terms.**"
         },
         {
           "type": "list",

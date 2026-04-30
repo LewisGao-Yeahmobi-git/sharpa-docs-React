@@ -19,30 +19,30 @@
         },
         {
           "type": "paragraph",
-          "text": "Key features:"
+          "text": "**Key features:**"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
             {
-              "text": "22 active degrees of freedom for highly dexterous manipulation",
+              "text": "**22 active degrees of freedom** for highly dexterous manipulation",
               "level": 0
             },
             {
-              "text": "Human-like size and kinematics for intuitive interaction and control",
+              "text": "**Human-like size and kinematics** for intuitive interaction and control",
               "level": 0
             },
             {
-              "text": "High-resolution tactile sensing at each fingertip",
+              "text": "**High-resolution tactile sensing** at each fingertip",
               "level": 0
             },
             {
-              "text": "Compliant joints for safe and adaptive contact",
+              "text": "**Compliant joints** for safe and adaptive contact",
               "level": 0
             },
             {
-              "text": "High reliability for continuous operation",
+              "text": "**High reliability** for continuous operation",
               "level": 0
             }
           ]
@@ -57,7 +57,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Joint Naming Convention:"
+          "text": "**Joint Naming Convention:**"
         },
         {
           "type": "paragraph",
@@ -68,15 +68,15 @@
           "ordered": false,
           "items": [
             {
-              "text": "Thumb: CMC, MCP, IP",
+              "text": "**Thumb**: CMC, MCP, IP",
               "level": 0
             },
             {
-              "text": "Fingers (index, middle, ring): MCP, PIP, DIP",
+              "text": "**Fingers (index, middle, ring):**: MCP, PIP, DIP",
               "level": 0
             },
             {
-              "text": "Pinky: CMC, MCP, PIP, DIP",
+              "text": "**Pinky**: CMC, MCP, PIP, DIP",
               "level": 0
             }
           ]
@@ -90,11 +90,11 @@
           "ordered": false,
           "items": [
             {
-              "text": "FE: Flexion–Extension",
+              "text": "**FE**: Flexion–Extension",
               "level": 0
             },
             {
-              "text": "AA: Abduction–Adduction",
+              "text": "**AA**: Abduction–Adduction",
               "level": 0
             }
           ]
@@ -153,12 +153,14 @@
                 "text": "",
                 "images": [
                   {
-                    "src": "/manual-assets/image2.png"
+                    "src": "/manual-assets/image2.png",
+                    "width": 80.3906,
+                    "height": 80
                   }
                 ]
               },
               {
-                "text": "The product enclosure may become hot during or after operation.\nAvoid direct skin contact\nAllow at least 30 minutes for cooling after power-off\nKeep flammable materials away",
+                "text": "The product enclosure may become hot during or after operation.\nAvoid direct skin contact\nAllow at least **30 minutes** for cooling after power-off\nKeep flammable materials away",
                 "images": []
               }
             ]
@@ -257,8 +259,7 @@
           "type": "heading",
           "level": 3,
           "id": "3-operating-requirements",
-          "text": "3. Operating Requirements"
-        },
+          "text": "3. Operating Requirements"        },
         {
           "type": "heading",
           "level": 4,
@@ -411,7 +412,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Contact Sharpa Technical Support for assistance at support@sharpa.com."
+          "text": "Contact **Sharpa Technical Support** for assistance at support@sharpa.com."
         },
         {
           "type": "heading",
@@ -1298,7 +1299,7 @@
               "level": 0
             },
             {
-              "text": "Read the Safety Instructions carefully",
+              "text": "Read the [Safety Instructions](#safety-instructions) carefully",
               "level": 0
             },
             {
@@ -1381,11 +1382,11 @@
           "ordered": true,
           "items": [
             {
-              "text": "Ensure power is OFF",
+              "text": "**Ensure power is OFF**",
               "level": 0
             },
             {
-              "text": "Connect the wrist cable",
+              "text": "**Connect the wrist cable**",
               "level": 0
             }
           ],
@@ -1439,7 +1440,7 @@
           "ordered": true,
           "items": [
             {
-              "text": "Connect the Ethernet cable",
+              "text": "**Connect the Ethernet cable**",
               "level": 0
             }
           ],
@@ -1460,7 +1461,7 @@
           "ordered": true,
           "items": [
             {
-              "text": "Connect the power adapter",
+              "text": "**Connect the power adapter**",
               "level": 0
             }
           ],
@@ -1497,7 +1498,7 @@
           "ordered": false,
           "items": [
             {
-              "text": "The rear hand indicator turns cyan (breathing) → device initialized",
+              "text": "The rear hand indicator turns **cyan (breathing)** → device initialized",
               "level": 0
             },
             {
@@ -1599,7 +1600,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Download Sharpa Pilot from https://www.sharpa.com/pages/download and install:"
+          "text": "Download [Sharpa Pilot](https://www.sharpa.com/pages/download) and install:"
         },
         {
           "type": "code",
@@ -1650,7 +1651,8 @@
             [
               {
                 "text": "Sharpa Wave",
-                "images": []
+                "images": [],
+                "rowSpan": 4
               },
               {
                 "text": "IP address",
@@ -1667,10 +1669,6 @@
             ],
             [
               {
-                "text": "",
-                "images": []
-              },
-              {
                 "text": "Tactile destination IP (dest_ip)",
                 "images": []
               },
@@ -1685,10 +1683,6 @@
             ],
             [
               {
-                "text": "",
-                "images": []
-              },
-              {
                 "text": "Heartbeat port (heart_port)",
                 "images": []
               },
@@ -1702,10 +1696,6 @@
               }
             ],
             [
-              {
-                "text": "",
-                "images": []
-              },
               {
                 "text": "Tactile stream port (stream_port)",
                 "images": []
@@ -1722,7 +1712,8 @@
             [
               {
                 "text": "Host PC",
-                "images": []
+                "images": [],
+                "rowSpan": 2
               },
               {
                 "text": "IP address (same as dest_ip)",
@@ -1730,29 +1721,19 @@
               },
               {
                 "text": "192.168.10.240",
-                "images": []
-              },
-              {
-                "text": "",
-                "images": []
+                "images": [],
+                "colSpan": 2
               }
             ],
             [
-              {
-                "text": "",
-                "images": []
-              },
               {
                 "text": "Subnet mask",
                 "images": []
               },
               {
                 "text": "255.255.255.0",
-                "images": []
-              },
-              {
-                "text": "",
-                "images": []
+                "images": [],
+                "colSpan": 2
               }
             ]
           ],
@@ -1771,11 +1752,11 @@
         },
         {
           "type": "paragraph",
-          "text": "Configure the host PC according to the values in Section 5.1, Default Network Settings."
+          "text": "Configure the host PC according to the values in Section 5.1, [Default Network Settings](#5-1-default-network-settings)."
         },
         {
           "type": "paragraph",
-          "text": "Notes"
+          "text": "**Notes**"
         },
         {
           "type": "list",
@@ -1786,7 +1767,7 @@
               "level": 0
             },
             {
-              "text": "For instructions on changing the device IP address or tactile destination IP, see Sharpa Pilot.",
+              "text": "For instructions on changing the device IP address or tactile destination IP, see [Sharpa Pilot](#sharpa-pilot).",
               "level": 0
             }
           ]
@@ -1799,7 +1780,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Joint calibration establishes the zero reference used by the control system. It is recommended each time the device is powered on to ensure accurate joint control."
+          "text": "Joint calibration establishes the zero reference used by the control system. **It is recommended each time the device is powered on to ensure accurate joint control.**"
         },
         {
           "type": "heading",
@@ -1840,7 +1821,7 @@
           "ordered": true,
           "items": [
             {
-              "text": "Launch Sharpa Pilot.",
+              "text": "Launch **Sharpa Pilot**.",
               "level": 0
             },
             {
@@ -1867,7 +1848,7 @@
           "ordered": true,
           "items": [
             {
-              "text": "Open the Calib panel and click Start Calibration.",
+              "text": "Open the **Calib** panel and click **Start Calibration**.",
               "level": 0
             }
           ],
@@ -1939,7 +1920,7 @@
           "ordered": true,
           "items": [
             {
-              "text": "Open Sliders panel in Sharpa Pilot",
+              "text": "Open **Sliders** panel in Sharpa Pilot",
               "level": 0
             },
             {
@@ -1968,7 +1949,7 @@
           "ordered": true,
           "items": [
             {
-              "text": "Go to Replay panel",
+              "text": "Go to **Replay** panel",
               "level": 0
             },
             {
@@ -1976,7 +1957,7 @@
               "level": 0
             },
             {
-              "text": "Click Play",
+              "text": "Click **Play**",
               "level": 0
             }
           ],
@@ -2282,7 +2263,7 @@
             ],
             [
               {
-                "text": "APP (Sharpa Pilot)",
+                "text": "**APP (Sharpa Pilot)**",
                 "images": []
               },
               {
@@ -2300,7 +2281,7 @@
             ],
             [
               {
-                "text": "SDK (C++ / Python)",
+                "text": "**SDK (C++ / Python)**",
                 "images": []
               },
               {
@@ -2318,7 +2299,7 @@
             ],
             [
               {
-                "text": "GLOVE",
+                "text": "**GLOVE**",
                 "images": []
               },
               {
@@ -2336,7 +2317,7 @@
             ],
             [
               {
-                "text": "IDLE",
+                "text": "**IDLE**",
                 "images": []
               },
               {
@@ -2371,7 +2352,7 @@
           "ordered": false,
           "items": [
             {
-              "text": "Only one control source can send motion commands at a time",
+              "text": "Only **one control source** can send motion commands at a time",
               "level": 0
             },
             {
@@ -2383,7 +2364,7 @@
               "level": 0
             },
             {
-              "text": "When set to IDLE:",
+              "text": "When set to **IDLE**:",
               "level": 0
             },
             {
@@ -2516,11 +2497,30 @@
           "rows": [
             [
               {
-                "text": "① Torque Source\nBy default, joint torque feedback is estimated from motor current.\nFor the MCP joints of the four fingers (FE and AA) and the CMC joints of the thumb (FE and AA), torque feedback can alternatively be obtained from integrated force sensors.\nThe torque source can be switched in Sharpa Pilot (Hardware Settings → Admittance Parameters → Force Feedback Source).\nWhen switching to sensor-based torque feedback, force sensor calibration must be performed beforehand. Calibration can be completed in Sharpa Pilot (Hardware Settings → Force Sensor Calibration).",
+                "text": "① Torque Source\nBy default, joint torque feedback is estimated from motor current.\nFor the MCP joints of the four fingers (FE and AA) and the CMC joints of the thumb (FE and AA), torque feedback can alternatively be obtained from integrated force sensors.\nThe torque source can be switched in Sharpa Pilot (Hardware Settings → Admittance Parameters → Force Feedback Source).",
+                "images": []
+              }
+            ],
+            [
+              {
+                "text": "",
                 "images": [
                   {
                     "src": "/manual-assets/image32.png"
-                  },
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "text": "When switching to sensor-based torque feedback, force sensor calibration must be performed beforehand. Calibration can be completed in Sharpa Pilot (Hardware Settings → Force Sensor Calibration).",
+                "images": []
+              }
+            ],
+            [
+              {
+                "text": "",
+                "images": [
                   {
                     "src": "/manual-assets/image33.png"
                   }
@@ -2677,7 +2677,7 @@
           "ordered": false,
           "items": [
             {
-              "text": "Control modes can be switched at runtime via Sharpa Pilot or Sharpa Wave SDK",
+              "text": "Control modes can be switched at runtime via [Sharpa Pilot](#sharpa-pilot) or [Sharpa Wave SDK](#2-4-3-control-mode).",
               "level": 0
             },
             {
@@ -3141,7 +3141,7 @@
         },
         {
           "type": "paragraph",
-          "text": "The SDK is available in C++ and Python. For detailed API definitions and examples, refer to the Sharpa Wave SDK."
+          "text": "The SDK is available in **C++ and Python**. For detailed API definitions and examples, refer to the [Sharpa Wave SDK](#sdk-overview)."
         },
         {
           "type": "heading",
@@ -3162,7 +3162,7 @@
               "level": 0
             },
             {
-              "text": "Ensure the control source is set to SDK (via Sharpa Pilot or API)",
+              "text": "Ensure the control source is set to **SDK** (via Sharpa Pilot or API)",
               "level": 0
             }
           ]
@@ -3242,11 +3242,11 @@
           "ordered": true,
           "items": [
             {
-              "text": "Download Sharpa Wave SDK from https://www.sharpa.com/pages/download",
+              "text": "Download Sharpa Wave SDK from [Sharpa Wave SDK](https://www.sharpa.com/pages/download)",
               "level": 0
             },
             {
-              "text": "Follow the instructions in README.md",
+              "text": "Follow the instructions in `README.md`",
               "level": 0
             },
             {
@@ -3261,11 +3261,11 @@
           "ordered": false,
           "items": [
             {
-              "text": "Python: SharpaWaveSDK_x.x.x/sample/python/sharpa_wave_example.py",
+              "text": "`Python: SharpaWaveSDK_x.x.x/sample/python/sharpa_wave_example.py`",
               "level": 0
             },
             {
-              "text": "C++: SharpaWaveSDK_x.x.x/sample/c++/sharpa_wave_example.cc",
+              "text": "`C++: SharpaWaveSDK_x.x.x/sample/c++/sharpa_wave_example.cc`",
               "level": 0
             }
           ]
@@ -3455,15 +3455,15 @@
           "ordered": false,
           "items": [
             {
-              "text": "Use force as the primary signal for most applications.",
+              "text": "Use **force** as the primary signal for most applications.",
               "level": 0
             },
             {
-              "text": "Use deformation map when spatial contact distribution is required.",
+              "text": "Use **deformation map** when spatial contact distribution is required.",
               "level": 0
             },
             {
-              "text": "Use contact point when a compact representation of contact location is sufficient.",
+              "text": "Use **contact point** when a compact representation of contact location is sufficient.",
               "level": 0
             },
             {
@@ -3487,11 +3487,11 @@
           "ordered": false,
           "items": [
             {
-              "text": "Standard (Onboard) Mode: Tactile inference is performed on the device.",
+              "text": "**Standard (Onboard) Mode**: Tactile inference is performed on the device.",
               "level": 0
             },
             {
-              "text": "High-Performance (Host) Mode: Raw tactile data is streamed to the host, where inference is performed using GPU acceleration.",
+              "text": "**High-Performance (Host) Mode**: Raw tactile data is streamed to the host, where inference is performed using GPU acceleration.",
               "level": 0
             }
           ]
@@ -3634,7 +3634,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use Standard Mode when:"
+          "text": "**Use Standard Mode when:**"
         },
         {
           "type": "list",
@@ -3660,7 +3660,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Use High-Performance Mode when:"
+          "text": "**Use High-Performance Mode when:**"
         },
         {
           "type": "list",
@@ -3695,11 +3695,11 @@
           "ordered": false,
           "items": [
             {
-              "text": "Standard mode: Standard SDK, no Docker required",
+              "text": "**Standard mode: Standard SDK**, no Docker required",
               "level": 0
             },
             {
-              "text": "High-Performance mode: Docker-based SDK with GPU acceleration",
+              "text": "**High-Performance mode: Docker-based SDK** with GPU acceleration",
               "level": 0
             }
           ]
@@ -3710,11 +3710,11 @@
         },
         {
           "type": "paragraph",
-          "text": "Important:"
+          "text": "**Important:**"
         },
         {
           "type": "paragraph",
-          "text": "Tactile data access via the SDK cannot be used simultaneously with Sharpa Pilot. This applies to both the Standard SDK and the Docker-based SDK. Both SDK pipelines and Sharpa Pilot use the same communication ports for tactile data streaming, which will result in conflicts. Close Sharpa Pilot before running any SDK-based tactile application."
+          "text": "Tactile data access via the SDK cannot be used simultaneously with Sharpa Pilot. This applies to both the Standard SDK and the Docker-based SDK. Both SDK pipelines and Sharpa Pilot use the same communication ports for tactile data streaming, which will result in conflicts. **Close Sharpa Pilot before running any SDK-based tactile application.**"
         },
         {
           "type": "heading",
@@ -3739,11 +3739,11 @@
               "level": 0
             },
             {
-              "text": "SharpaWaveSDK_x.x.x/sample/python/sharpa_tactile_fetch.py",
+              "text": "`SharpaWaveSDK_x.x.x/sample/python/sharpa_tactile_fetch.py`",
               "level": 1
             },
             {
-              "text": "SharpaWaveSDK_x.x.x/sample/python/sharpa_tactile_callback.py",
+              "text": "`SharpaWaveSDK_x.x.x/sample/python/sharpa_tactile_callback.py`",
               "level": 1
             },
             {
@@ -3751,7 +3751,7 @@
               "level": 0
             },
             {
-              "text": "SharpaWaveSDK_x.x.x/sample/c++/sharpa_tactile_example.cc",
+              "text": "`SharpaWaveSDK_x.x.x/sample/c++/sharpa_tactile_example.cc`",
               "level": 1
             }
           ]
@@ -3764,7 +3764,7 @@
         },
         {
           "type": "paragraph",
-          "text": "In this mode, the device streams raw tactile images to the host, and tactile inference is performed on the host using GPU acceleration via the Docker-based SDK."
+          "text": "In this mode, the device streams raw tactile images to the host, and tactile inference is performed on the host using GPU acceleration via the **Docker-based SDK.**"
         },
         {
           "type": "imageGrid",
@@ -4135,7 +4135,7 @@
         },
         {
           "type": "paragraph",
-          "text": "In the figure, channels 0–4 correspond to the right hand tactile sensors. In this example, only the right hand is connected, so the left-hand channels appear black because no data is received. For channel indexing and definitions, see the Tactile Channel Mapping section."
+          "text": "In the figure, channels 0–4 correspond to the right hand tactile sensors. In this example, only the right hand is connected, so the left-hand channels appear black because no data is received. For channel indexing and definitions, see the [Tactile Channel Mapping](#2-tactile-channel-mapping) section."
         },
         {
           "type": "heading",
@@ -4707,7 +4707,7 @@
         },
         {
           "type": "paragraph",
-          "text": "For precise numerical conversion, refer to the Sharpa Wave SDK."
+          "text": "For precise numerical conversion, refer to the [Sharpa Wave SDK](#sdk-overview)."
         },
         {
           "type": "heading",
@@ -4998,7 +4998,7 @@
               "level": 0
             },
             {
-              "text": "See the \"Tactile Data Acquisition\" section in Sharpa Wave SDK.",
+              "text": "[See the \"Tactile Data Acquisition\" section in Sharpa Wave SDK](#sdk-overview).",
               "level": 1
             }
           ]
@@ -6601,7 +6601,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Download the Sharpa Wave SDK from: https://www.sharpa.com/pages/downloads"
+          "text": "Download the Sharpa Wave SDK from: [Sharpa Wave SDK](https://www.sharpa.com/pages/downloads)"
         },
         {
           "type": "paragraph",
@@ -7974,7 +7974,7 @@
         },
         {
           "type": "paragraph",
-          "text": "For the complete list of fault codes and their meanings, refer to Appendix 4 Fault Codes."
+          "text": "For the complete list of fault codes and their meanings, refer to [Appendix 4 Fault Codes](#4-faultcode-device-level)."
         },
         {
           "type": "paragraph",
@@ -9187,7 +9187,7 @@
           "ordered": false,
           "items": [
             {
-              "text": "channel: tactile channel index. For the definition of tactile channel indices, see Appendix 2, Tactile Channel Mapping.",
+              "text": "channel: tactile channel index. For the definition of tactile channel indices, [see Appendix 2, Tactile Channel Mapping](#2-tactile-channel-mapping).",
               "level": 0
             },
             {
@@ -9400,7 +9400,7 @@
         },
         {
           "type": "paragraph",
-          "text": "For the complete list of error codes and their meanings, refer to Appendix 3 Error Codes."
+          "text": "For the complete list of error codes and their meanings, refer to [Appendix 3 Error Codes](#3-errorcode-api-level)."
         },
         {
           "type": "paragraph",
@@ -9481,7 +9481,7 @@
         },
         {
           "type": "paragraph",
-          "text": "For the complete list of fault codes and their meanings, refer to Appendix 4 Fault Codes."
+          "text": "For the complete list of fault codes and their meanings, refer to [Appendix 4 Fault Codes](#4-faultcode-device-level)."
         },
         {
           "type": "paragraph",
@@ -12283,7 +12283,7 @@
               "level": 0
             },
             {
-              "text": "Ensure that the host PC network settings are configured according to Section 5.1, Default Network Settings",
+              "text": "Ensure that the host PC network settings are configured according to [Section 5.1, Default Network Settings](#5-1-default-network-settings).",
               "level": 0
             },
             {
@@ -12453,7 +12453,7 @@
               "level": 0
             },
             {
-              "text": "If the angle is far from 0°, see Section 4.1, Single Joint Abnormal.",
+              "text": "If the angle is far from 0°, see [Section 4.1, Single Joint Abnormal](#4-1-single-joint-abnormal).",
               "level": 0
             }
           ],
@@ -12519,7 +12519,7 @@
               "level": 0
             },
             {
-              "text": "Check for thermal warnings (see Section 6.2).",
+              "text": "Check for thermal warnings (see [Section 6.2](#6-2-faultcode-device-level)).",
               "level": 0
             },
             {
@@ -12553,7 +12553,9 @@
                 "text": "no response",
                 "images": [
                   {
-                    "src": "/manual-assets/image78.png"
+                    "src": "/manual-assets/image78.png",
+                    "width": 230,
+                    "height": 230
                   }
                 ]
               },
@@ -12561,7 +12563,9 @@
                 "text": "normal response",
                 "images": [
                   {
-                    "src": "/manual-assets/image79.png"
+                    "src": "/manual-assets/image79.png",
+                    "width": 230,
+                    "height": 230
                   }
                 ]
               }
@@ -12796,7 +12800,7 @@
         },
         {
           "type": "paragraph",
-          "text": "For the full list of ErrorCodes, refer to the Sharpa Wave SDK ."
+          "text": "For the full list of ErrorCodes, refer to the [Sharpa Wave SDK](#sdk-overview)."
         },
         {
           "type": "heading",
@@ -12967,7 +12971,7 @@
         },
         {
           "type": "paragraph",
-          "text": "See Section 5.1, Default Network Settings."
+          "text": "[See Section 5.1, Default Network Settings](#5-1-default-network-settings)."
         },
         {
           "type": "list",
